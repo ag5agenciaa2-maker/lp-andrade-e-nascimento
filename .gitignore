@@ -1,0 +1,19 @@
+# Dependências
+node_modules/
+
+# Credenciais e ambiente
+.env
+.env.*
+
+# Configurações de IDE
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporários e logs
+tmp/
+*.log
