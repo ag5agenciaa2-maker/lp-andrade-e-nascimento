@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Andrade &amp; Nascimento — Sociedade de Advogados</title>
 <meta name="description" content="Advocacia previdenciária, trabalhista e de família com atendimento humano e acessível em todo o Brasil. Andrade &amp; Nascimento Sociedade de Advogados — Paciência, Rio de Janeiro.">
-<link rel="icon" href="assets/favicon.webp">
+<link rel="icon" href="assets/favicon-andrade-nascimento.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="cookie-banner.css">
 </head>
 <body>
 
@@ -37,7 +38,7 @@
 <nav class="nav" id="nav">
   <div class="nav__inner">
     <a class="brand" href="#top">
-      <img src="assets/logo.webp" alt="Monograma Andrade &amp; Nascimento" width="46" height="46">
+      <img src="assets/logo-andrade-nascimento-advocacia.webp" alt="Logotipo Andrade &amp; Nascimento Sociedade de Advogados" width="46" height="46">
       <span class="brand__text">
         <span class="brand__name">Andrade &amp; Nascimento</span>
         <span class="brand__sub">Sociedade de Advogados</span>
@@ -52,7 +53,7 @@
         <a href="#contato">Contato</a>
       </div>
       <a class="btn btn--gold btn--sm" href="https://wa.me/5521975785413" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#211d47" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.4 8.4 0 0 1-3.9-.8L3 21l1.9-5.1a8.4 8.4 0 0 1-.8-3.6 8.4 8.4 0 1 1 16.9-.8z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#211d47" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.892c0 2.096.549 4.142 1.595 5.945L0 24l6.335-1.652a11.9 11.9 0 005.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.893a11.821 11.821 0 00-3.481-8.46"/></svg>
         Fale conosco
       </a>
       <button class="burger" id="burger" aria-label="Abrir menu">
@@ -61,24 +62,6 @@
     </div>
   </div>
 </nav>
-
-<!-- ===== MOBILE MENU ===== -->
-<div class="mobilemenu" id="mobilemenu" hidden>
-  <div class="mobilemenu__head">
-    <span class="brand__name">Andrade &amp; Nascimento</span>
-    <button class="mobilemenu__close" id="menuClose" aria-label="Fechar menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-  </div>
-  <div class="mobilemenu__links">
-    <a href="#areas">Áreas de atuação</a>
-    <a href="#sobre">Sobre nós</a>
-    <a href="#depoimentos">Depoimentos</a>
-    <a href="#faq">Dúvidas frequentes</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <a class="btn btn--gold btn--block" href="https://wa.me/5521975785413" target="_blank" rel="noopener">Falar no WhatsApp</a>
-</div>
 
 <!-- ===== HERO ===== -->
 <header class="hero" id="top">
@@ -91,8 +74,8 @@
       <h1 class="hero__title reveal" data-reveal="up" data-reveal-delay="120">Defendemos o<br>seu direito de<br><em>viver com dignidade.</em></h1>
       <p class="hero__sub reveal" data-reveal="up" data-reveal-delay="260">Atendimento humano e acessível em direito previdenciário, trabalhista e de família — para trabalhadores, aposentados e famílias em todo o Brasil.</p>
       <div class="hero__cta reveal" data-reveal="up" data-reveal-delay="400">
-        <a class="btn btn--gold" href="https://wa.me/5521975785413" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#211d47" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.4 8.4 0 0 1-3.9-.8L3 21l1.9-5.1a8.4 8.4 0 0 1-.8-3.6 8.4 8.4 0 1 1 16.9-.8z"/></svg>
+        <a class="btn btn--gold" href="https://wa.me/5521975785413?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20uma%20informa%C3%A7%C3%A3o." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="#211d47" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.892c0 2.096.549 4.142 1.595 5.945L0 24l6.335-1.652a11.9 11.9 0 005.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.893a11.821 11.821 0 00-3.481-8.46"/></svg>
           Falar no WhatsApp
         </a>
         <a class="btn btn--outline" href="#areas">
@@ -104,6 +87,9 @@
         <span class="stars" aria-hidden="true"></span>
         <span><strong>5,0</strong> de avaliação no Google · OAB/RJ 240.863 · 243.079</span>
       </div>
+      <figure class="hero__photo reveal" data-reveal="scale" data-reveal-delay="640">
+        <img src="assets/equipe-advogadas-andrade-nascimento.webp" alt="As advogadas sócias do escritório Andrade &amp; Nascimento" loading="lazy">
+      </figure>
     </div>
   </div>
 </header>
@@ -123,8 +109,8 @@
     <p class="eyebrow reveal" data-reveal="up">Você não precisa enfrentar isso sozinho</p>
     <h2 class="pain__title reveal" data-reveal="up" data-reveal-delay="80">Teve o benefício negado pelo INSS? Foi demitido sem receber seus direitos? <em>A gente resolve.</em></h2>
     <p class="pain__text reveal" data-reveal="up" data-reveal-delay="200">Traduzimos a lei para o seu dia a dia e cuidamos do seu processo do começo ao fim — com clareza, atenção de verdade e sem juridiquês.</p>
-    <a class="btn btn--gold reveal" data-reveal="up" data-reveal-delay="300" href="https://wa.me/5521975785413" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#211d47" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.4 8.4 0 0 1-3.9-.8L3 21l1.9-5.1a8.4 8.4 0 0 1-.8-3.6 8.4 8.4 0 1 1 16.9-.8z"/></svg>
+    <a class="btn btn--gold reveal" data-reveal="up" data-reveal-delay="300" href="https://wa.me/5521975785413?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20saber%20sobre%20Direito%20Previdenci%C3%A1rio." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="#211d47" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.892c0 2.096.549 4.142 1.595 5.945L0 24l6.335-1.652a11.9 11.9 0 005.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.893a11.821 11.821 0 00-3.481-8.46"/></svg>
       Contar meu caso agora
     </a>
   </div>
@@ -152,13 +138,13 @@
     <div class="videos__grid">
       <figure class="video reveal" data-reveal="scale">
         <div class="video__frame">
-          <video src="assets/video-inss-dona-de-casa.mp4" controls playsinline preload="metadata"></video>
+          <video src="assets/video-dona-de-casa-pagar-inss-por-conta-propria.mp4" controls playsinline preload="metadata"></video>
         </div>
         <figcaption><span class="video__num">01</span><span>Dona de casa pode pagar o INSS por conta própria?</span></figcaption>
       </figure>
       <figure class="video reveal" data-reveal="scale" data-reveal-delay="140">
         <div class="video__frame">
-          <video src="assets/video-salario-maternidade.mp4" controls playsinline preload="metadata"></video>
+          <video src="assets/video-salario-maternidade-menor-de-idade.mp4" controls playsinline preload="metadata"></video>
         </div>
         <figcaption><span class="video__num">02</span><span>Menor de idade consegue salário-maternidade?</span></figcaption>
       </figure>
@@ -177,7 +163,7 @@
   <div class="about__inner">
     <div class="about__media reveal" data-reveal="left">
       <div class="about__photo">
-        <img src="assets/team.webp" alt="As advogadas da Andrade &amp; Nascimento">
+        <img src="assets/equipe-advogadas-andrade-nascimento.webp" alt="As advogadas sócias do escritório Andrade &amp; Nascimento" loading="lazy">
         <div class="about__oab">
           <div><div class="about__oab-num">OAB/RJ</div><div class="about__oab-val">240.863</div></div>
           <div class="about__oab-div"></div>
@@ -227,7 +213,7 @@
       <p class="eyebrow">Dúvidas frequentes</p>
       <h2>Perguntas que a gente ouve todo dia.</h2>
       <p class="faq__intro-text">Não encontrou sua dúvida? Fale com a gente no WhatsApp — a análise inicial é sem compromisso.</p>
-      <a class="link-arrow" href="https://wa.me/5521975785413" target="_blank" rel="noopener">Tirar minha dúvida
+      <a class="link-arrow" href="https://wa.me/5521975785413?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida." target="_blank" rel="noopener">Tirar minha dúvida
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -239,36 +225,36 @@
 <section class="loc" id="localizacao">
   <div class="loc__inner">
     <div class="section-head reveal" data-reveal="up">
-      <p class="eyebrow">Onde estamos</p>
+      <p class="eyebrow eyebrow--line">Onde estamos</p>
       <h2>Venha nos visitar em Paciência</h2>
+      <p class="section-head__text">Atendimento presencial com hora marcada — e também 100% online, onde você estiver.</p>
     </div>
-    <div class="loc__grid">
-      <div class="loc__info reveal" data-reveal="left">
-        <img class="loc__photo" src="assets/facade.webp" alt="Fachada do escritório Andrade &amp; Nascimento">
-        <div class="loc__rows">
-          <div class="loc__row">
-            <span class="loc__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <span>Rua Manoel Ventura, nº 22 — Paciência<br>Rio de Janeiro / RJ</span>
-          </div>
-          <div class="loc__row">
-            <span class="loc__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-            <span>Segunda a sexta, das 09h00 às 17h00</span>
-          </div>
+  </div>
+
+  <div class="loc__stage reveal" data-reveal="up" data-reveal-delay="100">
+    <div class="loc__map">
+      <iframe title="Mapa do escritório" src="https://www.google.com/maps?q=Rua%20Manoel%20Ventura%2022%20Paci%C3%AAncia%20Rio%20de%20Janeiro%20RJ&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="loc__stage-inner">
+      <aside class="loc__plaque">
+        <p class="loc__plaque-eyebrow">Nosso escritório</p>
+        <h3 class="loc__plaque-name">Andrade &amp; Nascimento</h3>
+        <div class="loc__plaque-rows">
+          <div class="loc__plaque-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Rua Manoel Ventura, nº 22 — Paciência, RJ</span></div>
+          <div class="loc__plaque-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Segunda a sexta · 09h às 17h</span></div>
+          <div class="loc__plaque-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(21) 97578-5413</span></div>
         </div>
-        <div class="loc__actions">
+        <div class="loc__plaque-actions">
           <a class="btn btn--gold btn--sm" href="https://www.google.com/maps/dir/?api=1&destination=Rua+Manoel+Ventura+22+Paci%C3%AAncia+Rio+de+Janeiro+RJ" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="#211d47" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
             Como chegar
           </a>
-          <a class="btn btn--outline btn--sm" href="https://wa.me/5521975785413" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.4 8.4 0 0 1-3.9-.8L3 21l1.9-5.1a8.4 8.4 0 0 1-.8-3.6 8.4 8.4 0 1 1 16.9-.8z"/></svg>
+          <a class="btn btn--outline btn--sm" href="https://wa.me/5521975785413?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.892c0 2.096.549 4.142 1.595 5.945L0 24l6.335-1.652a11.9 11.9 0 005.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.893a11.821 11.821 0 00-3.481-8.46"/></svg>
             WhatsApp
           </a>
         </div>
-      </div>
-      <div class="loc__map reveal" data-reveal="up" data-reveal-delay="120">
-        <iframe title="Mapa do escritório" src="https://www.google.com/maps?q=Rua%20Manoel%20Ventura%2022%20Paci%C3%AAncia%20Rio%20de%20Janeiro%20RJ&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+      </aside>
     </div>
   </div>
 </section>
@@ -277,33 +263,57 @@
 <section class="contact" id="contato">
   <div class="contact__inner">
     <div class="contact__info reveal" data-reveal="left">
-      <p class="eyebrow">Fale conosco</p>
-      <h2 class="contact__title">Conte o seu caso. O primeiro passo é sem compromisso.</h2>
-      <p class="contact__text">Preencha ao lado e enviamos a sua mensagem direto para o nosso WhatsApp — ou fale com a gente agora mesmo.</p>
-      <div class="contact__channels">
-        <a class="channel" href="https://wa.me/5521975785413" target="_blank" rel="noopener">
-          <span class="channel__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.4 8.4 0 0 1-3.9-.8L3 21l1.9-5.1a8.4 8.4 0 0 1-.8-3.6 8.4 8.4 0 1 1 16.9-.8z"/></svg></span>
-          <span class="channel__body"><span class="channel__k">WhatsApp</span><span class="channel__v">(21) 97578-5413</span></span>
-        </a>
-        <a class="channel" href="https://instagram.com/andradenascimentoadvocacia" target="_blank" rel="noopener">
-          <span class="channel__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
-          <span class="channel__body"><span class="channel__k">Instagram</span><span class="channel__v">@andradenascimentoadvocacia</span></span>
-        </a>
-      </div>
+      <p class="eyebrow eyebrow--line">Fale conosco</p>
+      <h2 class="contact__title">Conte o seu caso.<br>O primeiro passo é <em>sem compromisso.</em></h2>
+      <p class="contact__text">Preencha o formulário ao lado com os seus dados e um breve resumo da sua situação. É simples, rápido e você não paga nada pela primeira análise.</p>
+      <ul class="contact__benefits">
+        <li class="benefit">
+          <span class="benefit__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span class="benefit__body">
+            <span class="benefit__t">Resposta rápida</span>
+            <span class="benefit__d">Retornamos o seu contato normalmente no mesmo dia útil.</span>
+          </span>
+        </li>
+        <li class="benefit">
+          <span class="benefit__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>
+          <span class="benefit__body">
+            <span class="benefit__t">Especialistas na sua causa</span>
+            <span class="benefit__d">Foco em Direito Previdenciário, Trabalhista e de Família.</span>
+          </span>
+        </li>
+        <li class="benefit">
+          <span class="benefit__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg></span>
+          <span class="benefit__body">
+            <span class="benefit__t">Atendimento em todo o Brasil</span>
+            <span class="benefit__d">Presencial em Paciência/RJ ou 100% online, onde você estiver.</span>
+          </span>
+        </li>
+      </ul>
     </div>
     <form class="form reveal" data-reveal="up" data-reveal-delay="120" id="contactForm" novalidate>
+      <div class="form__head">
+        <h3 class="form__title">Solicite sua análise gratuita</h3>
+        <p class="form__sub">Preencha os campos e retornamos rapidamente pelo WhatsApp.</p>
+      </div>
       <label class="field">
         <span class="field__label">Nome completo</span>
         <input type="text" name="nome" id="f-nome" placeholder="Como podemos te chamar?">
         <span class="field__error" id="err-nome"></span>
       </label>
+      <div class="field-row">
+        <label class="field">
+          <span class="field__label">E-mail</span>
+          <input type="email" name="email" id="f-email" placeholder="seu@email.com">
+          <span class="field__error" id="err-email"></span>
+        </label>
+        <label class="field">
+          <span class="field__label">WhatsApp</span>
+          <input type="tel" name="whatsapp" id="f-whats" inputmode="numeric" placeholder="(21) 90000-0000">
+          <span class="field__error" id="err-whats"></span>
+        </label>
+      </div>
       <label class="field">
-        <span class="field__label">WhatsApp</span>
-        <input type="tel" name="whatsapp" id="f-whats" inputmode="numeric" placeholder="(21) 90000-0000">
-        <span class="field__error" id="err-whats"></span>
-      </label>
-      <label class="field">
-        <span class="field__label">Área de interesse</span>
+        <span class="field__label">Como podemos ajudar?</span>
         <select name="area" id="f-area">
           <option>Direito Previdenciário</option>
           <option>Direito Trabalhista</option>
@@ -314,14 +324,14 @@
         </select>
       </label>
       <label class="field">
-        <span class="field__label">Sua mensagem</span>
-        <textarea name="msg" id="f-msg" rows="4" placeholder="Conte, em poucas palavras, o que está acontecendo."></textarea>
+        <span class="field__label">Conte um pouco sobre sua situação</span>
+        <textarea name="msg" id="f-msg" rows="3" placeholder="Conte, em poucas palavras, o que está acontecendo."></textarea>
       </label>
       <button class="btn btn--gold btn--block" type="submit">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#211d47" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.4 8.4 0 0 1-3.9-.8L3 21l1.9-5.1a8.4 8.4 0 0 1-.8-3.6 8.4 8.4 0 1 1 16.9-.8z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#211d47" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.892c0 2.096.549 4.142 1.595 5.945L0 24l6.335-1.652a11.9 11.9 0 005.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.893a11.821 11.821 0 00-3.481-8.46"/></svg>
         Enviar pelo WhatsApp
       </button>
-      <p class="form__note">Ao enviar, você será direcionado ao nosso WhatsApp com a mensagem pronta.</p>
+      <p class="form__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Seus dados são tratados com sigilo · envio sem compromisso</p>
     </form>
   </div>
 </section>
@@ -330,9 +340,10 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__grid">
-      <div>
+      <!-- Coluna 1: Marca/Identidade -->
+      <div class="footer__col footer__col--brand">
         <div class="brand brand--footer">
-          <img src="assets/logo.webp" alt="Andrade &amp; Nascimento" width="44" height="44">
+          <img src="assets/logo-andrade-nascimento-advocacia.webp" alt="Logotipo Andrade &amp; Nascimento Sociedade de Advogados" width="44" height="44">
           <span class="brand__text">
             <span class="brand__name">Andrade &amp; Nascimento</span>
             <span class="brand__sub">Sociedade de Advogados</span>
@@ -340,8 +351,14 @@
         </div>
         <p class="footer__about">Advocacia previdenciária, trabalhista e de família com atendimento humano e acessível em todo o Brasil.</p>
         <p class="footer__oab">OAB/RJ 240.863 · OAB/RJ 243.079</p>
+        <div class="footer__social">
+          <a href="https://instagram.com/andradenascimentoadvocacia" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
       </div>
-      <div>
+      <!-- Coluna 2: Links Rápidos -->
+      <div class="footer__col">
         <p class="footer__title">Navegação</p>
         <div class="footer__links">
           <a href="#areas">Áreas de atuação</a>
@@ -351,22 +368,257 @@
           <a href="#contato">Contato</a>
         </div>
       </div>
-      <div>
-        <p class="footer__title">Contato</p>
+      <!-- Coluna 3: Links Úteis -->
+      <div class="footer__col">
+        <p class="footer__title">Informações</p>
         <div class="footer__links">
-          <a class="footer__contact" href="https://www.google.com/maps/dir/?api=1&destination=Rua+Manoel+Ventura+22+Paci%C3%AAncia+Rio+de+Janeiro+RJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Rua Manoel Ventura, 22 — Paciência, RJ</a>
-          <a class="footer__contact" href="https://wa.me/5521975785413" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.4 8.4 0 0 1-3.9-.8L3 21l1.9-5.1a8.4 8.4 0 0 1-.8-3.6 8.4 8.4 0 1 1 16.9-.8z"/></svg>(21) 97578-5413</a>
-          <a class="footer__contact" href="https://instagram.com/andradenascimentoadvocacia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--gold)" stroke="none"/></svg>@andradenascimentoadvocacia</a>
+          <a href="termos-e-condicoes.html">Termos e Condições</a>
+          <a href="politica-de-privacidade.html">Política de Privacidade</a>
+          <a href="#localizacao">Como chegar</a>
+          <a href="https://www.google.com/search?q=Andrade+e+Nascimento+Advocacia+Paci%C3%AAncia" target="_blank" rel="noopener">Avaliações no Google</a>
+        </div>
+      </div>
+      <!-- Coluna 4: Contato -->
+      <div class="footer__col">
+        <p class="footer__title">Contato</p>
+        <div class="footer__links footer__links--contact">
+          <a class="footer__contact" href="https://www.google.com/search?q=Andrade+e+Nascimento+Advocacia+Paci%C3%AAncia" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true"><path d="M4 10h3v7H4v-7zm6.5 0h3v7h-3v-7zM2 19h20v3H2v-3zm15-9h3v7h-3v-7zm-5-9L2 6v2h20V6L12 1z"/></svg>
+            Andrade &amp; Nascimento — Sociedade de Advogados
+          </a>
+          <a class="footer__contact" href="https://www.google.com/maps/dir/?api=1&destination=Rua+Manoel+Ventura+22+Paci%C3%AAncia+Rio+de+Janeiro+RJ" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            Rua Manoel Ventura, 22 — Paciência, RJ
+          </a>
+          <a class="footer__contact" href="https://wa.me/5521975785413" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.004c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.003a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.28.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48a.92.92 0 0 0-.67.31c-.23.25-.88.86-.88 2.09 0 1.23.9 2.42 1.03 2.59.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+            (21) 97578-5413
+          </a>
         </div>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© Andrade &amp; Nascimento 2026 · Todos os direitos reservados</span>
-      <span>Desenvolvido por <a href="https://www.ag5agencia.com.br" target="_blank" rel="noopener" class="footer__ag5">AG5 Agência</a></span>
+      <div class="footer__credits-left">
+        <span>© Andrade &amp; Nascimento 2026 · Todos os direitos reservados</span>
+        <div class="footer-legal-links">
+          <a href="#" id="ck-prefs-link" class="ck-prefs-link">
+            <span id="cookie-toggle" class="cookie-toggle">
+              <span class="cookie-toggle__check">✓</span>
+              <span class="cookie-toggle__x">✕</span>
+              <span id="cookie-toggle-dot" class="cookie-toggle__dot"></span>
+            </span>
+            Cookie
+          </a>
+          <span class="footer-legal-links__sep">|</span>
+          <a href="termos-e-condicoes.html">Termos e Condições</a>
+          <span class="footer-legal-links__sep">|</span>
+          <a href="politica-de-privacidade.html">Política de Privacidade</a>
+        </div>
+      </div>
+      <div class="footer__credits-right">
+        <span>Desenvolvido por <a href="https://www.ag5agencia.com.br" target="_blank" rel="noopener" class="footer__ag5">AG5 Agência</a></span>
+      </div>
     </div>
   </div>
 </footer>
 
+<!-- ===== MOBILE DRAWER (fora do <nav>, no final do body) ===== -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="mobilemenu" aria-hidden="true" aria-label="Menu de navegação">
+  <div class="drawer__head">
+    <a class="drawer__brand" href="#top">
+      <img src="assets/logo-andrade-nascimento-advocacia.webp" alt="Logotipo Andrade &amp; Nascimento Sociedade de Advogados" width="40" height="40">
+      <span class="brand__text">
+        <span class="brand__name">Andrade &amp; Nascimento</span>
+        <span class="brand__sub">Sociedade de Advogados</span>
+      </span>
+    </a>
+    <button class="drawer__close" id="menuClose" aria-label="Fechar menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer__links">
+    <a href="#areas">Áreas de atuação</a>
+    <a href="#sobre">Sobre nós</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#faq">Dúvidas frequentes</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <a class="btn btn--gold btn--block drawer__cta" href="https://wa.me/5521975785413" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</aside>
+
 <script src="script.js"></script>
+
+<!-- ========== COOKIE BANNER ========== -->
+<div id="ck-banner" class="ck-banner" role="dialog" aria-modal="true" aria-label="Aviso de cookies" aria-live="polite"
+    aria-hidden="true">
+    <div class="ck-banner__inner">
+        <div class="ck-banner__content">
+            <h2 class="ck-banner__title">Valorizamos sua privacidade</h2>
+            <p class="ck-banner__text">
+                Utilizamos cookies para aprimorar sua experiência de navegação, exibir conteúdo
+                personalizado e analisar nosso tráfego. Ao clicar em <strong>"Aceitar todos"</strong>,
+                você concorda com nosso uso de cookies conforme nossa
+                <a href="politica-de-privacidade.html" class="ck-banner__link">Política de Privacidade</a>.
+            </p>
+        </div>
+        <div class="ck-banner__actions">
+            <button id="ck-customize" class="ck-btn ck-btn--ghost">Personalizar</button>
+            <button id="ck-reject" class="ck-btn ck-btn--outline">Rejeitar</button>
+            <button id="ck-accept-all" class="ck-btn ck-btn--primary">Aceitar todos</button>
+        </div>
+    </div>
+</div>
+
+<!-- ========== MODAL DE PERSONALIZAÇÃO ========== -->
+<div id="ck-modal" class="ck-modal" role="dialog" aria-modal="true" aria-label="Personalizar preferências de cookies"
+    aria-hidden="true">
+    <div class="ck-modal__overlay" id="ck-modal-overlay"></div>
+    <div class="ck-modal__box">
+
+        <div class="ck-modal__header">
+            <h2 class="ck-modal__title">Personalizar preferências de consentimento</h2>
+            <button class="ck-modal__close" id="ck-modal-close" aria-label="Fechar modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="ck-modal__body">
+            <p class="ck-modal__intro">
+                Utilizamos cookies para ajudar você a navegar com eficiência e executar certas funções.
+                Os cookies classificados como <strong>"Necessário"</strong> são essenciais para o
+                funcionamento básico do site e não podem ser desativados.
+            </p>
+
+            <div class="ck-category">
+                <div class="ck-category__header">
+                    <div class="ck-category__info">
+                        <h3 class="ck-category__name">Necessário</h3>
+                        <p class="ck-category__desc">
+                            Essenciais para o funcionamento do site. Não armazenam dados pessoalmente identificáveis.
+                        </p>
+                    </div>
+                    <span class="ck-category__badge">Sempre ativo</span>
+                </div>
+            </div>
+
+            <div class="ck-category">
+                <div class="ck-category__header">
+                    <div class="ck-category__info">
+                        <h3 class="ck-category__name">Funcional</h3>
+                        <p class="ck-category__desc">
+                            Ajudam a executar funcionalidades como compartilhamento em mídia social e recursos de
+                            terceiros.
+                        </p>
+                    </div>
+                    <label class="ck-toggle" aria-label="Ativar cookies funcionais">
+                        <input type="checkbox" id="ck-functional" name="functional">
+                        <span class="ck-toggle__slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="ck-category">
+                <div class="ck-category__header">
+                    <div class="ck-category__info">
+                        <h3 class="ck-category__name">Analítico</h3>
+                        <p class="ck-category__desc">
+                            Usados para entender como os visitantes interagem com o site (visitantes, taxa de rejeição,
+                            etc.).
+                        </p>
+                    </div>
+                    <label class="ck-toggle" aria-label="Ativar cookies analíticos">
+                        <input type="checkbox" id="ck-analytics" name="analytics">
+                        <span class="ck-toggle__slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="ck-category">
+                <div class="ck-category__header">
+                    <div class="ck-category__info">
+                        <h3 class="ck-category__name">Desempenho</h3>
+                        <p class="ck-category__desc">
+                            Analisam índices de desempenho do site para oferecer melhor experiência ao visitante.
+                        </p>
+                    </div>
+                    <label class="ck-toggle" aria-label="Ativar cookies de desempenho">
+                        <input type="checkbox" id="ck-performance" name="performance">
+                        <span class="ck-toggle__slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="ck-category">
+                <div class="ck-category__header">
+                    <div class="ck-category__info">
+                        <h3 class="ck-category__name">Publicidade</h3>
+                        <p class="ck-category__desc">
+                            Entregam anúncios personalizados com base nas páginas visitadas anteriormente.
+                        </p>
+                    </div>
+                    <label class="ck-toggle" aria-label="Ativar cookies de publicidade">
+                        <input type="checkbox" id="ck-advertising" name="advertising">
+                        <span class="ck-toggle__slider"></span>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ck-modal__footer">
+            <button id="ck-modal-reject" class="ck-btn ck-btn--outline">Rejeitar</button>
+            <button id="ck-modal-save" class="ck-btn ck-btn--ghost">Salvar Preferências</button>
+            <button id="ck-modal-accept-all" class="ck-btn ck-btn--primary">Aceitar todos</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- WhatsApp Premium Experience -->
+<div class="wa-premium-container">
+    <!-- Balão de Mensagem Glassmorphism -->
+    <div id="wa-message-bubble" class="wa-bubble">
+        <button class="wa-close" id="wa-close-btn" aria-label="Fechar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        
+        <div class="wa-content">
+            <div class="wa-header">
+                <div class="wa-avatar-wrapper">
+                    <img src="assets/equipe-advogadas-andrade-nascimento.webp" alt="Advogadas Andrade &amp; Nascimento" class="wa-avatar">
+                    <span class="wa-status-dot"></span>
+                </div>
+                <div class="wa-info">
+                    <span class="wa-name">Andrade &amp; Nascimento</span>
+                    <span class="wa-status-text">Online agora</span>
+                </div>
+            </div>
+
+            <!-- Estado de Digitação -->
+            <div id="wa-typing" class="wa-typing">
+                <span></span><span></span><span></span>
+            </div>
+
+            <!-- Mensagem Real (Escondida inicialmente) -->
+            <div id="wa-real-message" class="wa-message-text" style="display: none;">
+                <p>Olá! Somos a <strong>Andrade &amp; Nascimento</strong>. Que tal uma análise do seu caso? Estamos disponíveis para conversarmos pelo WhatsApp.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Botão Flutuante Orgânico -->
+    <a href="https://wa.me/5521975785413?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20uma%20informa%C3%A7%C3%A3o." class="wa-float-btn" target="_blank" rel="noopener noreferrer" id="wa-main-btn">
+        <svg viewBox="0 0 16 16" width="28" height="28" fill="currentColor">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+        </svg>
+        <span class="wa-badge" id="wa-notification">1</span>
+    </a>
+</div>
+
+<script src="cookie-banner.js" defer></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
   'use strict';
 
   var WHATSAPP = 'https://wa.me/5521975785413';
+  var WHATSAPP_MSG = 'Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20saber%20sobre%20';
   var STAR = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9.9-5 4.8 1.2 6.8L12 17.6 5.9 20.8 7.1 14l-5-4.8 6.9-.9z"/></svg>';
   var prefersReduced = window.matchMedia &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -45,9 +46,10 @@
     var wrap = el('servicesList');
     if (!wrap) return;
     services.forEach(function (s, i) {
+      var msg = WHATSAPP + '?text=' + WHATSAPP_MSG + encodeURIComponent(s.title) + '.';
       var a = document.createElement('a');
       a.className = 'service reveal';
-      a.href = WHATSAPP;
+      a.href = msg;
       a.target = '_blank';
       a.rel = 'noopener';
       a.setAttribute('data-reveal', 'left');
@@ -186,16 +188,33 @@
     onScroll();
   })();
 
-  /* ---------- Mobile menu ---------- */
+  /* ---------- Mobile drawer ---------- */
   (function () {
     var menu = el('mobilemenu');
     var burger = el('burger');
     var close = el('menuClose');
+    var overlay = el('drawerOverlay');
     if (!menu || !burger) return;
-    function open() { menu.hidden = false; document.body.style.overflow = 'hidden'; }
-    function shut() { menu.hidden = true; document.body.style.overflow = ''; }
+    function open() {
+      menu.classList.add('is-open');
+      if (overlay) overlay.classList.add('is-open');
+      menu.setAttribute('aria-hidden', 'false');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function shut() {
+      menu.classList.remove('is-open');
+      if (overlay) overlay.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
     burger.addEventListener('click', open);
     if (close) close.addEventListener('click', shut);
+    if (overlay) overlay.addEventListener('click', shut);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) shut();
+    });
     menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
   })();
 
@@ -203,8 +222,8 @@
   (function () {
     var form = el('contactForm');
     if (!form) return;
-    var nome = el('f-nome'), whats = el('f-whats'), area = el('f-area'), msg = el('f-msg');
-    var errNome = el('err-nome'), errWhats = el('err-whats');
+    var nome = el('f-nome'), email = el('f-email'), whats = el('f-whats'), area = el('f-area'), msg = el('f-msg');
+    var errNome = el('err-nome'), errEmail = el('err-email'), errWhats = el('err-whats');
 
     function formatPhone(v) {
       var d = (v || '').replace(/\D/g, '').slice(0, 11);
@@ -213,25 +232,86 @@
       if (d.length <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
       return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
     }
+    function isValidEmail(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    }
+
     whats.addEventListener('input', function () {
       whats.value = formatPhone(whats.value);
       errWhats.textContent = '';
     });
     nome.addEventListener('input', function () { errNome.textContent = ''; });
+    if (email) email.addEventListener('input', function () { errEmail.textContent = ''; });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var ok = true;
       if (!nome.value.trim()) { errNome.textContent = 'Por favor, informe seu nome.'; ok = false; }
+      if (!email || !email.value.trim() || !isValidEmail(email.value)) {
+        if (errEmail) errEmail.textContent = 'Informe um e-mail válido.'; ok = false;
+      }
       if (whats.value.replace(/\D/g, '').length < 10) {
         errWhats.textContent = 'Informe um WhatsApp válido com DDD.'; ok = false;
       }
       if (!ok) return;
-      var parts = ['Olá! Meu nome é ' + nome.value.trim() + '.',
-        'Tenho interesse em ' + area.value + '.'];
-      if (msg.value.trim()) parts.push(msg.value.trim());
-      window.open(WHATSAPP + '?text=' + encodeURIComponent(parts.join(' ')), '_blank');
+
+      var message = 'Olá, me chamo ' + nome.value.trim() + ', vim através do site e gostaria de uma informação.\n\n' +
+        '- E-mail: ' + email.value.trim() + '\n' +
+        '- Telefone: ' + whats.value.trim() + '\n' +
+        '- Assunto: ' + area.value + '\n';
+      if (msg.value.trim()) {
+        message += '- Situação: ' + msg.value.trim();
+      }
+      window.open(WHATSAPP + '?text=' + encodeURIComponent(message), '_blank');
     });
+  })();
+
+  /* ---------- WhatsApp Premium Experience ---------- */
+  (function () {
+    var bubble = document.getElementById('wa-message-bubble');
+    var typing = document.getElementById('wa-typing');
+    var realMessage = document.getElementById('wa-real-message');
+    var badge = document.getElementById('wa-notification');
+    var closeBtn = document.getElementById('wa-close-btn');
+    var mainBtn = document.getElementById('wa-main-btn');
+    if (!bubble || !typing || !realMessage) return;
+
+    // Mostrar o balão após 6 segundos
+    setTimeout(function () {
+      bubble.classList.add('show');
+      // Simular digitação por 2.5 segundos antes de mostrar a mensagem
+      setTimeout(function () {
+        typing.style.display = 'none';
+        realMessage.style.display = 'block';
+        realMessage.style.opacity = '0';
+        realMessage.style.transition = 'opacity .6s ease';
+        requestAnimationFrame(function () {
+          realMessage.style.opacity = '1';
+        });
+      }, 2500);
+    }, 6000);
+
+    // Fechar balão
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        bubble.classList.remove('show');
+        // Mostrar notificação após fechar para manter engajamento
+        if (badge) {
+          setTimeout(function () {
+            badge.classList.add('show');
+          }, 2000);
+        }
+      });
+    }
+
+    // Ao clicar no botão, remove tudo
+    if (mainBtn) {
+      mainBtn.addEventListener('click', function () {
+        bubble.classList.remove('show');
+        if (badge) badge.classList.remove('show');
+      });
+    }
   })();
 
 })();
