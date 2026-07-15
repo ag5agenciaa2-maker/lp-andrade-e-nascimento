@@ -916,22 +916,27 @@ svg{display:block}
 .loc__plaque-actions .btn{padding-left:52px;padding-right:52px}
 
 /* ---------- Contact ---------- */
-.contact{position:relative;overflow:hidden;padding:var(--pad-y) var(--pad-x);
-  border-top:1px solid rgba(201,162,75,.14);
+.contact{position:relative;overflow:hidden;
+  /* 5% a menos de respiro em cima/embaixo — conteúdo intacto */
+  padding:calc(var(--pad-y) * .95) var(--pad-x);
   background:
-    radial-gradient(115% 82% at 100% -5%, rgba(63,49,105,.5) 0%, transparent 55%),
-    radial-gradient(95% 75% at -8% 108%, rgba(33,55,77,.5) 0%, transparent 55%),
-    linear-gradient(180deg, var(--indigo-deep) 0%, #171334 100%)}
-/* Imagem da balança com máscara → dissolve suavemente para a direita, fundindo no roxo */
+    radial-gradient(115% 82% at 100% -5%, rgba(46,35,78,.13) 0%, transparent 55%),
+    radial-gradient(95% 75% at -8% 108%, rgba(24,40,58,.13) 0%, transparent 55%),
+    linear-gradient(180deg, #131029 0%, #0b0819 100%)}
+/* Imagem da balança: máscara SÓ na horizontal → dissolve da esquerda para a direita,
+   fundindo no roxo. A imagem cobre a altura toda (cover), sem corte no topo/base. */
+/* auto 100% = a imagem se ajusta pela ALTURA → a balança aparece inteira (pé ao topo);
+   a largura fica proporcional e o excesso da mesa sai pelas laterais */
 .contact::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:url('assets/contato-bg.png') left center / contain no-repeat;
-  -webkit-mask-image:linear-gradient(to right, #000 0%, #000 30%, rgba(0,0,0,0) 62%);
-  mask-image:linear-gradient(to right, #000 0%, #000 30%, rgba(0,0,0,0) 62%)}
+  background:url('assets/contato-bg.png') -3% 35% / auto 115% no-repeat;
+  opacity:.92;
+  -webkit-mask-image:linear-gradient(to right, #000 0%, rgba(0,0,0,.92) 26%, rgba(0,0,0,.74) 40%, rgba(0,0,0,.5) 52%, rgba(0,0,0,.26) 64%, rgba(0,0,0,.1) 74%, rgba(0,0,0,0) 86%);
+  mask-image:linear-gradient(to right, #000 0%, rgba(0,0,0,.92) 26%, rgba(0,0,0,.74) 40%, rgba(0,0,0,.5) 52%, rgba(0,0,0,.26) 64%, rgba(0,0,0,.1) 74%, rgba(0,0,0,0) 86%)}
 /* Escurecimento atrás do texto (legibilidade) + vinheta cinematográfica */
 .contact::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
-    linear-gradient(to right, rgba(17,14,38,.9) 0%, rgba(17,14,38,.82) 26%, rgba(17,14,38,.5) 44%, rgba(17,14,38,.12) 56%, transparent 66%),
-    radial-gradient(128% 104% at 50% 42%, transparent 52%, rgba(8,6,20,.55) 100%)}
+    linear-gradient(to right, rgba(12,9,28,.84) 0%, rgba(12,9,28,.78) 20%, rgba(12,9,28,.66) 34%, rgba(12,9,28,.48) 46%, rgba(12,9,28,.3) 58%, rgba(12,9,28,.14) 70%, rgba(12,9,28,.05) 80%, transparent 90%),
+    radial-gradient(128% 104% at 50% 42%, transparent 48%, rgba(5,3,14,.72) 100%)}
 .contact__inner{position:relative;z-index:1;
   max-width:1180px;
   margin:0 auto;
@@ -980,35 +985,40 @@ svg{display:block}
 .benefit__d{font-size:14px;color:rgba(245,243,238,.82);line-height:1.5}
 
 /* ---------- Form ---------- */
-.form{
-  background:#fff;
-  border:1px solid rgba(42,36,86,.1);
-  border-radius:12px;
-  padding:clamp(28px,4vw,40px);
-  box-shadow:0 20px 60px -30px rgba(42,36,86,.25)
+.form{position:relative;
+  background:linear-gradient(165deg, rgba(52,44,102,.72) 0%, rgba(28,23,62,.82) 100%);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  border:1px solid rgba(201,162,75,.28);
+  border-radius:16px;
+  padding:clamp(26px,2.8vw,36px);
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.07)
 }
-.form__head{margin-bottom:28px}
-.form__title{font-family:var(--serif);font-size:clamp(22px,2.2vw,28px);color:var(--ink)}
-.form__sub{margin-top:8px;font-size:14px;color:#6b6779}
-.field{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+/* Fio dourado no topo do card */
+.form::before{content:"";position:absolute;top:0;left:14%;right:14%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,162,75,.75),transparent)}
+.form__head{margin-bottom:20px}
+.form__title{font-family:var(--serif);font-size:clamp(21px,2vw,26px);color:var(--offwhite)}
+.form__sub{margin-top:6px;font-size:13.5px;color:rgba(245,243,238,.62)}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field__label{
-  font-size:13px;
-  font-weight:500;
-  color:var(--ink);
-  letter-spacing:.02em
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:rgba(228,201,120,.9)
 }
 .field input,
 .field select,
 .field textarea{
   width:100%;
-  padding:13px 16px;
-  border:1px solid rgba(42,36,86,.14);
-  border-radius:6px;
-  background:#fafafa;
+  padding:11px 14px;
+  border:1px solid rgba(201,162,75,.2);
+  border-radius:8px;
+  background:rgba(12,10,30,.45);
   font-family:var(--sans);
-  font-size:15px;
-  color:var(--ink);
+  font-size:14.5px;
+  color:var(--offwhite);
   transition:border-color .25s ease,box-shadow .25s ease,background .25s ease
 }
 .field input:focus,
@@ -1016,22 +1026,27 @@ svg{display:block}
 .field textarea:focus{
   outline:none;
   border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(201,162,75,.1);
-  background:#fff
+  box-shadow:0 0 0 3px rgba(201,162,75,.16);
+  background:rgba(12,10,30,.7)
 }
-.field input::placeholder{color:#9b97a8}
-.field select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b6779' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
-.field textarea{resize:vertical;min-height:80px}
-.field__error{font-size:12px;color:#c44;margin-top:4px;min-height:18px}
+.field input::placeholder,
+.field textarea::placeholder{color:rgba(245,243,238,.34)}
+.field select{cursor:pointer;appearance:none;color:var(--offwhite);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C9A24B' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.field select option{background:#1c173e;color:var(--offwhite)}
+.field textarea{resize:vertical;min-height:62px}
+/* Erro não reserva altura — só ocupa espaço quando existe mensagem */
+.field__error{font-size:12px;color:#ff8b8b;min-height:0}
+.field__error:not(:empty){margin-top:3px}
 .form__note{
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:8px;
-  margin-top:16px;
+  margin-top:14px;
   font-size:12px;
-  color:#6b6779
+  color:rgba(245,243,238,.5)
 }
-.form__note svg{width:14px;height:14px;flex-shrink:0}
+.form__note svg{width:14px;height:14px;flex-shrink:0;color:var(--gold)}
 
 /* ---------- Footer ---------- */
 .footer{
@@ -1194,6 +1209,29 @@ svg{display:block}
   .faq-q.is-active .faq-q__inline{max-height:600px;opacity:1}
   .contact__inner{grid-template-columns:1fr}
   .contact__info{position:static}
+  /* No mobile o degradê do fundo volta a ser vertical (o horizontal é só no desktop) */
+  .contact{background:
+    radial-gradient(115% 82% at 100% -5%, rgba(46,35,78,.13) 0%, transparent 55%),
+    radial-gradient(95% 75% at -8% 108%, rgba(24,40,58,.13) 0%, transparent 55%),
+    linear-gradient(180deg, #131029 0%, #0b0819 100%)}
+  /* Mobile: tudo empilha — a imagem passa a cobrir o topo e dissolve para baixo
+     (a máscara horizontal do desktop não faz sentido aqui) */
+  .contact::before{
+    background:url('assets/contato-bg.png') center top / cover no-repeat;
+    /* Duas máscaras multiplicadas: dissolve para baixo E nas laterais,
+       para nunca aparecer a borda/fim da imagem */
+    -webkit-mask-image:
+      linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.12) 6%, rgba(0,0,0,.4) 13%, rgba(0,0,0,.72) 21%, rgba(0,0,0,.92) 30%, #000 38%, rgba(0,0,0,.88) 50%, rgba(0,0,0,.62) 62%, rgba(0,0,0,.34) 74%, rgba(0,0,0,.12) 85%, rgba(0,0,0,0) 95%),
+      linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 10%, #000 24%, #000 76%, rgba(0,0,0,.6) 90%, rgba(0,0,0,0) 100%);
+    mask-image:
+      linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.12) 6%, rgba(0,0,0,.4) 13%, rgba(0,0,0,.72) 21%, rgba(0,0,0,.92) 30%, #000 38%, rgba(0,0,0,.88) 50%, rgba(0,0,0,.62) 62%, rgba(0,0,0,.34) 74%, rgba(0,0,0,.12) 85%, rgba(0,0,0,0) 95%),
+      linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 10%, #000 24%, #000 76%, rgba(0,0,0,.6) 90%, rgba(0,0,0,0) 100%);
+    -webkit-mask-composite:source-in;
+    mask-composite:intersect}
+  .contact::after{
+    background:
+      linear-gradient(to bottom, rgba(17,14,38,.9) 0%, rgba(17,14,38,.78) 8%, rgba(17,14,38,.64) 20%, rgba(17,14,38,.66) 34%, rgba(17,14,38,.76) 54%, rgba(17,14,38,.86) 76%, rgba(17,14,38,.92) 100%),
+      radial-gradient(120% 90% at 50% 30%, transparent 55%, rgba(8,6,20,.5) 100%)}
   .loc__stage{height:auto;display:block;border:1px solid rgba(201,162,75,.22);
     border-radius:16px;overflow:hidden;box-shadow:0 34px 80px -44px rgba(0,0,0,.55)}
   .loc__map{position:relative;inset:auto;height:280px;border-radius:0}
