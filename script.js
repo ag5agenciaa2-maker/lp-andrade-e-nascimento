@@ -1,268 +1,287 @@
 /* =========================================================
    Andrade & Nascimento — Sociedade de Advogados
-   script.js  (Vanilla ES6)
+   Ultra Premium Rebuild — script.js
    ========================================================= */
-(function () {
+(function(){
   'use strict';
 
-  var WHATSAPP = 'https://wa.me/5521975785413';
-  var WHATSAPP_MSG = 'Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20saber%20sobre%20';
-  var STAR = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9.9-5 4.8 1.2 6.8L12 17.6 5.9 20.8 7.1 14l-5-4.8 6.9-.9z"/></svg>';
-  var prefersReduced = window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var WHATSAPP='https://wa.me/5521975785413';
+  var WHATSAPP_MSG='Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20saber%20sobre%20';
+  var STAR='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9.9-5 4.8 1.2 6.8L12 17.6 5.9 20.8 7.1 14l-5-4.8 6.9-.9z"/></svg>';
+  var prefersReduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Data ---------- */
-  var services = [
-    { n: '01', title: 'Direito Previdenciário', desc: 'Aposentadorias, auxílio-doença, BPC/LOAS, salário-maternidade e revisões. Teve o benefício negado pelo INSS? A gente recorre e resolve.' },
-    { n: '02', title: 'Direito Trabalhista', desc: 'Demissão sem justa causa, verbas rescisórias, horas extras, assédio e reconhecimento de vínculo. Seus direitos de trabalhador, garantidos.' },
-    { n: '03', title: 'Direito de Família', desc: 'Divórcio, pensão alimentícia, guarda, inventário e partilha — conduzidos com sensibilidade e total discrição.' },
-    { n: '04', title: 'Direito do Consumidor', desc: 'Cobranças indevidas, negativação, produtos e serviços com defeito e contratos abusivos. Você não está sozinho contra as empresas.' },
-    { n: '05', title: 'Direito Cível', desc: 'Contratos, indenizações, cobranças e conflitos patrimoniais resolvidos com estratégia e segurança jurídica.' }
-  ];
+  function el(id){return document.getElementById(id)}
 
-  var testimonials = [
-    { text: 'Me ajudaram a conseguir minha aposentadoria depois de anos de negativa do INSS. Atendimento humano do início ao fim.', who: 'Cliente · Previdenciário' },
-    { text: 'Fui demitida sem receber meus direitos e elas resolveram tudo com muita rapidez e clareza. Recomendo demais.', who: 'Cliente · Trabalhista' },
-    { text: 'Explicaram cada etapa em uma linguagem que eu entendi. Me senti acolhida e segura o tempo todo.', who: 'Cliente · Direito de Família' }
-  ];
-
-  var faq = [
-    { q: 'Quem tem direito a se aposentar pelo INSS?', a: 'Depende do tempo de contribuição, da idade e da categoria (urbano, rural ou especial). Analisamos o seu caso e dizemos exatamente o que falta para você se aposentar.' },
-    { q: 'O INSS negou meu benefício. Ainda posso conseguir?', a: 'Sim. Muitas negativas são revertidas na via administrativa ou judicial. Reunimos os documentos certos e recorremos da decisão por você.' },
-    { q: 'Dona de casa pode receber aposentadoria ou salário-maternidade?', a: 'Pode, em várias situações — inclusive contribuindo como facultativa de baixa renda. Avaliamos qual é o melhor caminho para o seu caso.' },
-    { q: 'Fui demitido. Como sei se recebi tudo o que tinha direito?', a: 'Fazemos o cálculo das suas verbas rescisórias e verificamos horas extras, FGTS e demais direitos. Se houver diferença, buscamos o pagamento.' },
-    { q: 'Quanto custa a primeira conversa?', a: 'A análise inicial do seu caso é feita pelo WhatsApp, sem compromisso. Você entende suas opções antes de decidir qualquer coisa.' }
-  ];
-
-  function el(id) { return document.getElementById(id); }
+  /* ---------- Hero load ---------- */
+  (function(){
+    var hero=document.querySelector('.hero');
+    if(!hero)return;
+    function loaded(){hero.classList.add('is-loaded')}
+    if(document.readyState==='complete')loaded();
+    else window.addEventListener('load',loaded);
+  })();
 
   /* ---------- Stars ---------- */
-  document.querySelectorAll('.stars').forEach(function (s) {
-    s.innerHTML = STAR + STAR + STAR + STAR + STAR;
+  document.querySelectorAll('.stars').forEach(function(s){
+    s.innerHTML=STAR+STAR+STAR+STAR+STAR;
   });
 
-  /* ---------- Render services ---------- */
-  (function () {
-    var wrap = el('servicesList');
-    if (!wrap) return;
-    services.forEach(function (s, i) {
-      var msg = WHATSAPP + '?text=' + WHATSAPP_MSG + encodeURIComponent(s.title) + '.';
-      var a = document.createElement('a');
-      a.className = 'service reveal';
-      a.href = msg;
-      a.target = '_blank';
-      a.rel = 'noopener';
-      a.setAttribute('data-reveal', 'left');
-      a.setAttribute('data-reveal-delay', String(i * 130));
-      a.innerHTML =
-        '<span class="service__num">' + s.n + '</span>' +
-        '<span class="service__body"><span class="service__title">' + s.title +
-        '</span><span class="service__desc">' + s.desc + '</span></span>' +
-        '<span class="service__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
+  /* ---------- Services ---------- */
+  var services=[
+    {n:'01',title:'Direito Previdenciário',desc:'Aposentadorias, auxílio-doença, BPC/LOAS, salário-maternidade e revisões. Teve o benefício negado pelo INSS? A gente recorre e resolve.'},
+    {n:'02',title:'Direito Trabalhista',desc:'Demissão sem justa causa, verbas rescisórias, horas extras, assédio e reconhecimento de vínculo. Seus direitos de trabalhador, garantidos.'},
+    {n:'03',title:'Direito de Família',desc:'Divórcio, pensão alimentícia, guarda, inventário e partilha — conduzidos com sensibilidade e total discrição.'},
+    {n:'04',title:'Direito do Consumidor',desc:'Cobranças indevidas, negativação, produtos e serviços com defeito e contratos abusivos. Você não está sozinho contra as empresas.'},
+    {n:'05',title:'Direito Cível',desc:'Contratos, indenizações, cobranças e conflitos patrimoniais resolvidos com estratégia e segurança jurídica.'}
+  ];
+  (function(){
+    var wrap=el('servicesList');
+    if(!wrap)return;
+    services.forEach(function(s,i){
+      var msg=WHATSAPP+'?text='+WHATSAPP_MSG+encodeURIComponent(s.title)+'.';
+      var a=document.createElement('a');
+      a.className='service reveal';
+      a.href=msg;
+      a.target='_blank';
+      a.rel='noopener';
+      a.setAttribute('data-reveal','left');
+      a.setAttribute('data-reveal-delay',String(i*130));
+      a.innerHTML='<span class="service__num">'+s.n+'</span><span class="service__body"><span class="service__title">'+s.title+'</span><span class="service__desc">'+s.desc+'</span></span><span class="service__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
       wrap.appendChild(a);
     });
   })();
 
-  /* ---------- Render testimonials ---------- */
-  (function () {
-    var track = el('testiTrack');
-    var dotsWrap = el('testiDots');
-    if (!track || !dotsWrap) return;
-    var index = 0, timer;
-
-    testimonials.forEach(function (t, i) {
-      var b = document.createElement('blockquote');
-      b.className = 'testi__item' + (i === 0 ? ' is-active' : '');
-      b.innerHTML = '<p>\u201C' + t.text + '\u201D</p><footer>' + t.who + '</footer>';
-      track.appendChild(b);
-
-      var d = document.createElement('button');
-      d.className = 'testi__dot' + (i === 0 ? ' is-active' : '');
-      d.type = 'button';
-      d.setAttribute('aria-label', 'Ver depoimento ' + (i + 1));
-      d.addEventListener('click', function () { go(i); restart(); });
-      dotsWrap.appendChild(d);
-    });
-
-    var items = track.querySelectorAll('.testi__item');
-    var dots = dotsWrap.querySelectorAll('.testi__dot');
-
-    // keep stage tall enough for the tallest quote
-    function sizeStage() {
-      var max = 0;
-      items.forEach(function (it) { max = Math.max(max, it.offsetHeight); });
-      if (max) track.style.minHeight = max + 'px';
+  /* ---------- Testimonials (20 reais do Google) ---------- */
+  var testimonials=[
+    {text:'Advogada muito atenciosa. Tivemos êxito no processo graças à dedicação e competência da profissional. Indico a todos!',who:'Sara Melo · Google'},
+    {text:'São profissionais maravilhosos! Tive um pequeno problema e, em menos de dois meses, elas resolveram tudo, sempre com uma comunicação clara, respeitosa e dispostas a esclarecer todas as dúvidas.',who:'Mauro Guedes · Google'},
+    {text:'Melhor advogada. Excelente profissional, atenciosa, não abandona os clientes, sempre me responde quando tenho dúvidas. Indico demais!',who:'Larissa Helena · Google'},
+    {text:'Ambiente muito agradável, ótimo atendimento, sempre com muito respeito. A doutora foi super simpática e conseguiu me auxiliar de forma clara e muito eficiente. Uma parceria para a vida toda.',who:'Luiz Vitor Santos · Google'},
+    {text:'Espaço aconchegante. Consegui resolver meus problemos e ganhei um processo graças à Dra. Caroline e sua equipe. São atenciosos, competentes e explicam tudo com muita clareza e ética.',who:'Luciene Da Costa · Google'},
+    {text:'Atenciosa, competente e muito dedicada! Ela me ajudou a resolver meu problema familiar. Sou muito grato! Indico para todos que conheço, uma excelente profissional!',who:'Isaias Henrique · Google'},
+    {text:'Ótimo atendimento, super indico. Doutora super atenciosa e dedicada nas causas. Obrigada por tudo, causa ganha. Já tinha perdido as esperanças, mas graças à Dra. Caroline consegui essa vitória.',who:'Alessan Andrade · Google'},
+    {text:'Ótima profissional, dedicada e atenciosa. Meu processo foi super rápido. Indicarei sempre os serviços para todos que conheço.',who:'Benjamin Almeida · Google'},
+    {text:'Melhor advogada, super atenciosa e gentil. Sempre que preciso, tira minhas dúvidas. Ganhou minha causa, me auxilia até hoje. Super recomendo, maravilhosa.',who:'Yasmim Souza · Google'},
+    {text:'Uma excelente advogada! Sou da Bahia e ela conseguiu me atender perfeitamente mesmo com a distância.',who:'Junior · Google'},
+    {text:'Ótimo atendimento, super atenciosa. Resolveu meus problemos sem me dar dor de cabeça e muito rápido. Profissionalismo puro. Super recomendo! Pode confiar!',who:'Douglas Ferreira · Google'},
+    {text:'Excelente profissional, muito atenciosa. Graças a ela ganhei minha causa!',who:'Mylene Lira Alves de Oliveira · Google'},
+    {text:'Advogada excelente, atenciosa, competente e simpática. Me ajudou no meu processo e me aposentei.',who:'Ado Euclides · Google'},
+    {text:'A melhor advogada! É de confiança, super indico.',who:'Bruna Antunes · Google'},
+    {text:'Advogada excelente! Me ajudou a ganhar minha causa.',who:'Igor Costa · Google'},
+    {text:'Excelente advogada! O trabalho dela é perfeito!',who:'Paola Rodrigues · Google'},
+    {text:'Ótima profissional, super atenciosa e simpática! Super indico.',who:'Ellen Caroline · Google'},
+    {text:'Sempre rápida e muito profissional na resolução dos processos. Indico seus serviços de olhos fechados!',who:'Ingrid Fernandes · Google'},
+    {text:'Ótima profissional, me ajudou muito rápido com meu processo!',who:'CLEBER · Google'},
+    {text:'Advogada maravilhosa! Uma excelente profissional!',who:'Lucas Vitor · Google'},
+    {text:'Confiança e comprometimento. Só tenho a agradecer.',who:'Valquiria Silva · Google'},
+    {text:'Excelente atendimento.',who:'Matheus Rodrigues · Google'}
+  ];
+  (function(){
+    var rowA=el('testiRowA'),rowB=el('testiRowB');
+    if(!rowA||!rowB)return;
+    function initial(name){return name.trim().charAt(0).toUpperCase()}
+    function card(t){
+      var name=t.who.split('\u00B7')[0].trim();
+      var d=document.createElement('article');
+      d.className='testi__card';
+      d.innerHTML=
+        '<div class="testi__card-stars" aria-hidden="true">\u2605\u2605\u2605\u2605\u2605</div>'+
+        '<p class="testi__card-text">\u201C'+t.text+'\u201D</p>'+
+        '<div class="testi__card-by">'+
+          '<span class="testi__card-avatar" aria-hidden="true">'+initial(name)+'</span>'+
+          '<span class="testi__card-name">'+name+'<span>Avalia\u00E7\u00E3o verificada</span></span>'+
+        '</div>';
+      return d;
     }
-
-    function go(i) {
-      index = i;
-      items.forEach(function (it, k) { it.classList.toggle('is-active', k === i); });
-      dots.forEach(function (dt, k) { dt.classList.toggle('is-active', k === i); });
+    // duplica cada lista para o loop cont\u00EDnuo (translateX -50%)
+    function fill(row,list){
+      list.concat(list).forEach(function(t){row.appendChild(card(t))});
     }
-    function next() { go((index + 1) % testimonials.length); }
-    function restart() { clearInterval(timer); timer = setInterval(next, 6000); }
-
-    window.addEventListener('load', sizeStage);
-    window.addEventListener('resize', sizeStage);
-    sizeStage();
-    restart();
+    var half=Math.ceil(testimonials.length/2);
+    fill(rowA,testimonials.slice(0,half));
+    fill(rowB,testimonials.slice(half));
   })();
 
-  /* ---------- Render FAQ ---------- */
-  (function () {
-    var wrap = el('faqList');
-    if (!wrap) return;
-    faq.forEach(function (f, i) {
-      var item = document.createElement('div');
-      item.className = 'faq-item' + (i === 0 ? ' is-open' : '');
-      item.innerHTML =
-        '<button class="faq-item__q" type="button" aria-expanded="' + (i === 0) + '">' +
-        '<span>' + f.q + '</span>' +
-        '<span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>' +
-        '</button>' +
-        '<div class="faq-item__a"><p>' + f.a + '</p></div>';
-      var btn = item.querySelector('.faq-item__q');
-      btn.addEventListener('click', function () {
-        var open = item.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', String(open));
+  /* ---------- FAQ ---------- */
+  var faq=[
+    {q:'Quem tem direito a se aposentar pelo INSS?',a:'Depende do tempo de contribuição, da idade e da categoria (urbano, rural ou especial). Analisamos o seu caso e dizemos exatamente o que falta para você se aposentar.'},
+    {q:'O INSS negou meu benefício. Ainda posso conseguir?',a:'Sim. Muitas negativas são revertidas na via administrativa ou judicial. Reunimos os documentos certos e recorremos da decisão por você.'},
+    {q:'Dona de casa pode receber aposentadoria ou salário-maternidade?',a:'Pode, em várias situações — inclusive contribuindo como facultativa de baixa renda. Avaliamos qual é o melhor caminho para o seu caso.'},
+    {q:'Fui demitido. Como sei se recebi tudo o que tinha direito?',a:'Fazemos o cálculo das suas verbas rescisórias e verificamos horas extras, FGTS e demais direitos. Se houver diferença, buscamos o pagamento.'},
+    {q:'Quanto custa a primeira conversa?',a:'A análise inicial do seu caso é feita pelo WhatsApp, sem compromisso. Você entende suas opções antes de decidir qualquer coisa.'}
+  ];
+  (function(){
+    var nav=el('faqNav'),panel=el('faqPanel');
+    if(!nav)return;
+    var CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
+    var items=[];
+    function pad(i){return(i<9?'0':'')+(i+1)}
+    function renderPanel(i){
+      if(!panel)return;
+      var f=faq[i];
+      panel.innerHTML=
+        '<span class="faq__panel-num" aria-hidden="true">'+pad(i)+'</span>'+
+        '<div class="faq__panel-content">'+
+        '<p class="faq__panel-eyebrow">Resposta</p>'+
+        '<h3 class="faq__panel-q">'+f.q+'</h3>'+
+        '<p class="faq__panel-a">'+f.a+'</p>'+
+        '</div>';
+    }
+    function select(i){
+      items.forEach(function(it,k){
+        var on=k===i;
+        it.wrap.classList.toggle('is-active',on);
+        it.btn.setAttribute('aria-expanded',String(on));
       });
-      wrap.appendChild(item);
+      renderPanel(i);
+    }
+    faq.forEach(function(f,i){
+      var wrap=document.createElement('div');
+      wrap.className='faq-q'+(i===0?' is-active':'');
+      var btn=document.createElement('button');
+      btn.className='faq-q__btn';
+      btn.type='button';
+      btn.setAttribute('aria-expanded',String(i===0));
+      btn.innerHTML=
+        '<span class="faq-q__num">'+pad(i)+'</span>'+
+        '<span class="faq-q__text">'+f.q+'</span>'+
+        '<span class="faq-q__ico">'+CHEV+'</span>';
+      var inline=document.createElement('div');
+      inline.className='faq-q__inline';
+      inline.innerHTML='<p>'+f.a+'</p>';
+      wrap.appendChild(btn);
+      wrap.appendChild(inline);
+      btn.addEventListener('click',function(){
+        // Mobile (accordion): permite fechar o item já aberto
+        var isMobile=window.matchMedia('(max-width:900px)').matches;
+        if(isMobile&&wrap.classList.contains('is-active')){
+          wrap.classList.remove('is-active');
+          btn.setAttribute('aria-expanded','false');
+        }else{
+          select(i);
+        }
+      });
+      nav.appendChild(wrap);
+      items.push({wrap:wrap,btn:btn});
     });
+    renderPanel(0);
   })();
 
   /* ---------- Reveal on scroll ---------- */
-  (function () {
-    var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-    if (prefersReduced || !('IntersectionObserver' in window)) {
-      els.forEach(function (e) { e.classList.add('is-shown'); });
+  (function(){
+    var els=Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    if(prefersReduced||!('IntersectionObserver' in window)){
+      els.forEach(function(e){e.classList.add('is-shown')});
       return;
     }
-    function reveal(e) {
-      var d = parseFloat(e.getAttribute('data-reveal-delay') || 0);
-      setTimeout(function () { e.classList.add('is-shown'); }, d);
+    function reveal(e){
+      var d=parseFloat(e.getAttribute('data-reveal-delay')||0);
+      setTimeout(function(){e.classList.add('is-shown')},d);
     }
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { reveal(en.target); obs.unobserve(en.target); }
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){reveal(en.target);obs.unobserve(en.target)}
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-    els.forEach(function (e) { obs.observe(e); });
-    // safety net
-    setTimeout(function () { els.forEach(function (e) { e.classList.add('is-shown'); }); }, 2500);
+    },{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){obs.observe(e)});
+    setTimeout(function(){els.forEach(function(e){e.classList.add('is-shown')})},2500);
   })();
 
   /* ---------- Counters ---------- */
-  (function () {
-    var wrap = el('counters');
-    if (!wrap) return;
-    var run = false;
-    function animate() {
-      if (run) return; run = true;
-      wrap.querySelectorAll('[data-count]').forEach(function (node) {
-        var target = parseInt(node.getAttribute('data-count'), 10);
-        var suffix = node.getAttribute('data-suffix') || '';
-        if (prefersReduced) { node.textContent = target + suffix; return; }
-        var dur = 1600, start = performance.now();
-        function tick(now) {
-          var p = Math.min(1, (now - start) / dur);
-          var e = 1 - Math.pow(1 - p, 3);
-          node.textContent = Math.round(e * target) + suffix;
-          if (p < 1) requestAnimationFrame(tick);
+  (function(){
+    var wrap=el('counters');
+    if(!wrap)return;
+    var run=false;
+    function animate(){
+      if(run)return;run=true;
+      wrap.querySelectorAll('[data-count]').forEach(function(node){
+        var target=parseInt(node.getAttribute('data-count'),10);
+        var suffix=node.getAttribute('data-suffix')||'';
+        if(prefersReduced){node.textContent=target+suffix;return}
+        var dur=1600,start=performance.now();
+        function tick(now){
+          var p=Math.min(1,(now-start)/dur);
+          var e=1-Math.pow(1-p,3);
+          node.textContent=Math.round(e*target)+suffix;
+          if(p<1)requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
       });
     }
-    if (!('IntersectionObserver' in window)) { animate(); return; }
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { animate(); obs.disconnect(); } });
-    }, { threshold: 0.35 });
+    if(!('IntersectionObserver' in window)){animate();return}
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){animate();obs.disconnect()}});
+    },{threshold:0.35});
     obs.observe(wrap);
   })();
 
-  /* ---------- Nav scroll state ---------- */
-  (function () {
-    var nav = el('nav');
-    if (!nav) return;
-    function onScroll() { nav.classList.toggle('is-scrolled', window.scrollY > 24); }
-    window.addEventListener('scroll', onScroll, { passive: true });
+  /* ---------- Nav scroll ---------- */
+  (function(){
+    var nav=el('nav');
+    if(!nav)return;
+    function onScroll(){nav.classList.toggle('is-scrolled',window.scrollY>24)}
+    window.addEventListener('scroll',onScroll,{passive:true});
     onScroll();
   })();
 
   /* ---------- Mobile drawer ---------- */
-  (function () {
-    var menu = el('mobilemenu');
-    var burger = el('burger');
-    var close = el('menuClose');
-    var overlay = el('drawerOverlay');
-    if (!menu || !burger) return;
-    function open() {
+  (function(){
+    var menu=el('mobilemenu');
+    var burger=el('burger');
+    var close=el('menuClose');
+    var overlay=el('drawerOverlay');
+    if(!menu||!burger)return;
+    function open(){
       menu.classList.add('is-open');
-      if (overlay) overlay.classList.add('is-open');
-      menu.setAttribute('aria-hidden', 'false');
-      burger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+      if(overlay)overlay.classList.add('is-open');
+      menu.setAttribute('aria-hidden','false');
+      burger.setAttribute('aria-expanded','true');
+      document.body.style.overflow='hidden';
     }
-    function shut() {
+    function shut(){
       menu.classList.remove('is-open');
-      if (overlay) overlay.classList.remove('is-open');
-      menu.setAttribute('aria-hidden', 'true');
-      burger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      if(overlay)overlay.classList.remove('is-open');
+      menu.setAttribute('aria-hidden','true');
+      burger.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
     }
-    burger.addEventListener('click', open);
-    if (close) close.addEventListener('click', shut);
-    if (overlay) overlay.addEventListener('click', shut);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menu.classList.contains('is-open')) shut();
-    });
-    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+    burger.addEventListener('click',open);
+    if(close)close.addEventListener('click',shut);
+    if(overlay)overlay.addEventListener('click',shut);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open'))shut()});
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',shut)});
   })();
 
   /* ---------- Contact form ---------- */
-  (function () {
-    var form = el('contactForm');
-    if (!form) return;
-    var nome = el('f-nome'), email = el('f-email'), whats = el('f-whats'), area = el('f-area'), msg = el('f-msg');
-    var errNome = el('err-nome'), errEmail = el('err-email'), errWhats = el('err-whats');
-
-    function formatPhone(v) {
-      var d = (v || '').replace(/\D/g, '').slice(0, 11);
-      if (d.length <= 2) return d.length ? '(' + d : '';
-      if (d.length <= 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
-      if (d.length <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
-      return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+  (function(){
+    var form=el('contactForm');
+    if(!form)return;
+    var nome=el('f-nome'),email=el('f-email'),whats=el('f-whats'),area=el('f-area'),msg=el('f-msg');
+    var errNome=el('err-nome'),errEmail=el('err-email'),errWhats=el('err-whats');
+    function formatPhone(v){
+      var d=(v||'').replace(/\D/g,'').slice(0,11);
+      if(d.length<=2)return d.length?'('+d:'';
+      if(d.length<=6)return '('+d.slice(0,2)+') '+d.slice(2);
+      if(d.length<=10)return '('+d.slice(0,2)+') '+d.slice(2,6)+'-'+d.slice(6);
+      return '('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7);
     }
-    function isValidEmail(v) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-    }
-
-    whats.addEventListener('input', function () {
-      whats.value = formatPhone(whats.value);
-      errWhats.textContent = '';
-    });
-    nome.addEventListener('input', function () { errNome.textContent = ''; });
-    if (email) email.addEventListener('input', function () { errEmail.textContent = ''; });
-
-    form.addEventListener('submit', function (e) {
+    function isValidEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())}
+    whats.addEventListener('input',function(){whats.value=formatPhone(whats.value);errWhats.textContent=''});
+    nome.addEventListener('input',function(){errNome.textContent=''});
+    if(email)email.addEventListener('input',function(){errEmail.textContent=''});
+    form.addEventListener('submit',function(e){
       e.preventDefault();
-      var ok = true;
-      if (!nome.value.trim()) { errNome.textContent = 'Por favor, informe seu nome.'; ok = false; }
-      if (!email || !email.value.trim() || !isValidEmail(email.value)) {
-        if (errEmail) errEmail.textContent = 'Informe um e-mail válido.'; ok = false;
-      }
-      if (whats.value.replace(/\D/g, '').length < 10) {
-        errWhats.textContent = 'Informe um WhatsApp válido com DDD.'; ok = false;
-      }
-      if (!ok) return;
-
-      var message = 'Olá, me chamo ' + nome.value.trim() + ', vim através do site e gostaria de uma informação.\n\n' +
-        '- E-mail: ' + email.value.trim() + '\n' +
-        '- Telefone: ' + whats.value.trim() + '\n' +
-        '- Assunto: ' + area.value + '\n';
-      if (msg.value.trim()) {
-        message += '- Situação: ' + msg.value.trim();
-      }
-      window.open(WHATSAPP + '?text=' + encodeURIComponent(message), '_blank');
+      var ok=true;
+      if(!nome.value.trim()){errNome.textContent='Por favor, informe seu nome.';ok=false}
+      if(!email||!email.value.trim()||!isValidEmail(email.value)){if(errEmail)errEmail.textContent='Informe um e-mail válido.';ok=false}
+      if(whats.value.replace(/\D/g,'').length<10){errWhats.textContent='Informe um WhatsApp válido com DDD.';ok=false}
+      if(!ok)return;
+      var message='Olá, me chamo '+nome.value.trim()+', vim através do site e gostaria de uma informação.\n\n'+
+        '- E-mail: '+email.value.trim()+'\n'+
+        '- Telefone: '+whats.value.trim()+'\n'+
+        '- Assunto: '+area.value+'\n';
+      if(msg.value.trim())message+='- Situação: '+msg.value.trim();
+      window.open(WHATSAPP+'?text='+encodeURIComponent(message),'_blank');
     });
   })();
 
