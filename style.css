@@ -716,7 +716,6 @@ svg{display:block}
 .about__pillars li{display:flex;align-items:flex-start;gap:12px;font-size:15px;line-height:1.5;color:#3a3648}
 .about__pillars svg{width:20px;height:20px;flex-shrink:0;color:var(--gold);margin-top:1px}
 .about__pillars strong{color:var(--ink);font-weight:600}
-.about__cta{margin-top:34px;align-self:flex-start}
 
 /* Foto da equipe — moldura premium + credencial OAB */
 .about__media{position:relative;padding-bottom:26px}
@@ -747,7 +746,6 @@ svg{display:block}
   .about__media{order:-1;max-width:480px;margin:0 auto;width:100%}
   .about__oab{padding:13px 18px;gap:24px}
   .about__oab-item strong{font-size:19px}
-  .about__cta{align-self:stretch}
 }
 
 /* ---------- Testimonials ---------- */
@@ -1060,8 +1058,9 @@ svg{display:block}
 .footer__inner{max-width:var(--max);margin:0 auto}
 .footer__grid{
   display:grid;
-  grid-template-columns:1.6fr 1fr 1fr 1.2fr;
-  gap:clamp(30px,4vw,60px);
+  /* contato precisa de mais largura: tem o texto mais longo (telefone + endereço) */
+  grid-template-columns:1.5fr .9fr 1fr 1.5fr;
+  gap:clamp(28px,3.2vw,52px);
   margin-bottom:60px
 }
 .footer__col--brand{max-width:300px}
@@ -1093,12 +1092,13 @@ svg{display:block}
   border:1px solid rgba(201,162,75,.25);
   border-radius:50%;
   color:var(--gold);
-  transition:all .25s ease
+  transition:color .35s var(--ease),border-color .35s var(--ease)
 }
+/* o SVG precisa de tamanho fixo — sem isso o logo oficial estoura o botão */
+.footer__social a svg{width:17px;height:17px;display:block}
 .footer__social a:hover{
-  background:var(--gold);
-  color:var(--indigo-deep);
-  border-color:var(--gold)
+  color:var(--champagne);
+  border-color:rgba(201,162,75,.7)
 }
 .footer__title{
   font-size:13px;
@@ -1115,14 +1115,21 @@ svg{display:block}
   transition:color .25s ease,padding-left .25s ease
 }
 .footer__links a:hover{color:var(--champagne);padding-left:4px}
+/* flex-start + line-height casada = ícone alinhado à 1ª linha quando o texto quebra */
 .footer__contact{
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   gap:10px;
   font-size:14.5px;
+  line-height:1.5;
   color:rgba(245,243,238,.72)
 }
-.footer__contact svg{width:18px;height:18px;flex-shrink:0}
+.footer__contact svg{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+/* o telefone nunca quebra no meio dos dígitos */
+.footer__contact--phone{white-space:nowrap}
+/* o hover desta coluna não empurra o item (o padding-left é dos links de navegação) */
+.footer__links--contact a:hover{padding-left:0}
+.footer__links--contact{gap:16px}
 .footer__bottom{
   border-top:1px solid rgba(245,243,238,.1);
   padding-top:28px;
