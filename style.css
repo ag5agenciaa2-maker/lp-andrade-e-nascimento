@@ -461,17 +461,26 @@ svg{display:block}
 /* corte VERTICAL reto no meio — cada metade ocupa 50% */
 .pain__half--before{left:0;width:50%}
 .pain__half--after{right:0;width:50%}
+/* Hover: nada se move — só a LUZ muda. O problema afunda no escuro,
+   a solução acende em cor. A animação diz o que a seção argumenta. */
 .pain__img{position:absolute;inset:0;background-size:cover;background-position:center 20%;
-  transition:transform 1s var(--ease)}
+  transition:filter .9s var(--ease)}
 .pain__half--before .pain__img{filter:grayscale(.7) brightness(.6) contrast(1.05)}
 .pain__half--after .pain__img{filter:saturate(1.05)}
-.pain__stage:hover .pain__half--before .pain__img{transform:scale(1.05)}
-.pain__stage:hover .pain__half--after .pain__img{transform:scale(1.05)}
+.pain__stage:hover .pain__half--before .pain__img{filter:grayscale(.85) brightness(.72) contrast(1.06)}
+.pain__stage:hover .pain__half--after .pain__img{filter:saturate(1.2) brightness(1.08)}
 /* véus: problema fica frio/escuro, solução ganha calor dourado */
-.pain__half--before::after{content:"";position:absolute;inset:0;
+.pain__half--before::after,.pain__half--after::after{
+  content:"";position:absolute;inset:0;transition:background .9s var(--ease)}
+.pain__half--before::after{
   background:linear-gradient(180deg,rgba(10,12,24,.35),rgba(10,12,24,.8))}
-.pain__half--after::after{content:"";position:absolute;inset:0;
+.pain__half--after::after{
   background:linear-gradient(180deg,rgba(20,17,45,.15),rgba(201,162,75,.14) 55%,rgba(20,17,45,.6))}
+/* no hover o véu do problema pesa mais e o da solução clareia */
+.pain__stage:hover .pain__half--before::after{
+  background:linear-gradient(180deg,rgba(8,10,20,.4),rgba(8,10,20,.82))}
+.pain__stage:hover .pain__half--after::after{
+  background:linear-gradient(180deg,rgba(20,17,45,.05),rgba(201,162,75,.2) 55%,rgba(20,17,45,.45))}
 
 .pain__half-tag{
   position:absolute;top:20px;z-index:3;
@@ -529,25 +538,72 @@ svg{display:block}
   margin:0 auto;max-width:620px;
   font-size:clamp(15px,1.3vw,17.5px);line-height:1.7;color:rgba(245,243,238,.78)
 }
+/* mais largo que o .pain__inner (840px) — 3 colunas precisam de espaço */
 .pain__pillars{
-  margin:clamp(34px,4vw,48px) 0;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);text-align:left
+  margin:clamp(34px,4vw,48px) auto;
+  width:min(1060px,100%);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,20px);text-align:left
 }
 .pain__pillar{
-  display:flex;flex-direction:column;gap:12px;
-  padding:22px;border-radius:14px;
-  background:rgba(245,243,238,.03);border:1px solid rgba(201,162,75,.14)
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:flex-start;
+  padding:30px 26px 28px;border-radius:16px;
+  background:linear-gradient(165deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,.02) 100%);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(201,162,75,.2);
+  box-shadow:0 24px 50px -32px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06);
+  transition:border-color .5s var(--ease),box-shadow .5s var(--ease),background .5s var(--ease)
 }
+/* fio dourado que acende no topo do card */
+.pain__pillar::before{
+  content:"";position:absolute;top:0;left:22%;right:22%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:.5;transition:opacity .5s var(--ease),left .5s var(--ease),right .5s var(--ease)
+}
+.pain__pillar:hover{
+  border-color:rgba(201,162,75,.5);
+  background:linear-gradient(165deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,.03) 100%);
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.8),0 0 50px -30px rgba(201,162,75,.35),inset 0 1px 0 rgba(255,255,255,.09)
+}
+.pain__pillar:hover::before{opacity:1;left:8%;right:8%}
+
+/* número em serifa, marca-d'água no canto */
+.pain__pillar-n{
+  position:absolute;top:16px;right:20px;
+  font-family:var(--serif);font-size:44px;line-height:1;
+  color:rgba(201,162,75,.13);
+  transition:color .5s var(--ease);
+  pointer-events:none
+}
+.pain__pillar:hover .pain__pillar-n{color:rgba(201,162,75,.24)}
+
+/* ícone em moldura de vidro com anel dourado */
 .pain__pillar-ic{
-  width:46px;height:46px;
+  width:52px;height:52px;flex-shrink:0;margin-bottom:20px;
   display:flex;align-items:center;justify-content:center;
-  border-radius:12px;color:var(--gold);
-  border:1px solid rgba(201,162,75,.3);
-  background:linear-gradient(145deg,rgba(201,162,75,.18),rgba(201,162,75,.03))
+  border-radius:14px;
+  color:var(--champagne);
+  border:1px solid rgba(201,162,75,.4);
+  background:linear-gradient(160deg,rgba(201,162,75,.24),rgba(201,162,75,.06));
+  box-shadow:0 8px 22px -10px rgba(201,162,75,.5),inset 0 1px 0 rgba(255,255,255,.12);
+  transition:background .5s var(--ease),box-shadow .5s var(--ease),color .5s var(--ease)
 }
-.pain__pillar-ic svg{width:22px;height:22px}
-.pain__pillar strong{display:block;font-family:var(--serif);font-size:16.5px;color:var(--offwhite);font-weight:600}
-.pain__pillar span{display:block;font-size:13.5px;color:rgba(245,243,238,.62);margin-top:4px;line-height:1.4}
+.pain__pillar:hover .pain__pillar-ic{
+  color:var(--indigo-deep);
+  background:linear-gradient(160deg,var(--champagne),var(--gold));
+  box-shadow:0 12px 30px -8px rgba(201,162,75,.7),inset 0 1px 0 rgba(255,255,255,.3)
+}
+.pain__pillar-ic svg{width:23px;height:23px}
+
+.pain__pillar strong{
+  display:block;font-family:var(--serif);font-size:17.5px;
+  color:var(--offwhite);font-weight:600;line-height:1.25;
+  padding-right:34px
+}
+.pain__pillar-d{
+  display:block;font-size:13.5px;color:rgba(245,243,238,.6);
+  margin-top:8px;line-height:1.5
+}
 
 /* ---------- Pain Responsive ---------- */
 @media (max-width:860px){
@@ -562,8 +618,17 @@ svg{display:block}
   .pain__seam{top:50%;bottom:auto;left:0;right:0;width:auto;height:2px;
     transform:translateY(-50%);
     background:linear-gradient(90deg,rgba(201,162,75,.3),var(--gold) 30%,var(--champagne) 50%,var(--gold) 70%,rgba(201,162,75,.3))}
+  /* mobile: ícone à esquerda, texto ao lado (mais compacto) */
   .pain__pillars{grid-template-columns:1fr;gap:12px}
-  .pain__pillar{flex-direction:row;align-items:center;gap:16px;padding:16px 18px}
+  .pain__pillar{
+    display:grid;grid-template-columns:auto 1fr;align-items:center;
+    column-gap:16px;padding:18px 20px
+  }
+  .pain__pillar-ic{width:46px;height:46px;margin-bottom:0;grid-row:1/3}
+  .pain__pillar-ic svg{width:21px;height:21px}
+  .pain__pillar strong{font-size:16px;align-self:end;padding-right:40px}
+  .pain__pillar-d{align-self:start;margin-top:3px}
+  .pain__pillar-n{font-size:34px;top:12px;right:16px}
 }
 /* ---------- Services ---------- */
 .services{
