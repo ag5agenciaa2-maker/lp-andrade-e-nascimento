@@ -1,0 +1,344 @@
+<!-- ============================================================
+     TEMPLATE CANÔNICO DE NAVEGAÇÃO E RODAPÉ — ANDRADE & NASCIMENTO
+     Substituir {{BASE}} conforme a profundidade da página:
+     - Na raiz: {{BASE}} = "" (vazio)
+     - Em subpasta (ex: blog/): {{BASE}} = "../"
+     ============================================================ -->
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="{{BASE}}index.html#top">
+      <img src="{{BASE}}assets/logo-andrade-nascimento-advocacia.webp" alt="Logotipo Andrade &amp; Nascimento" width="46" height="46">
+      <span class="brand__text">
+        <span class="brand__name">Andrade &amp; Nascimento</span>
+        <span class="brand__sub">Sociedade de Advogados</span>
+      </span>
+    </a>
+    <div class="nav__right">
+      <div class="nav__links">
+        <a href="{{BASE}}index.html#top">Início</a>
+        <a href="{{BASE}}index.html#areas">Serviço</a>
+        <a href="{{BASE}}index.html#sobre">Sobre</a>
+        <a href="{{BASE}}index.html#depoimentos">Depoimentos</a>
+        <a href="{{BASE}}index.html#contato">Contatos</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== MOBILE DRAWER ===== -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="mobilemenu" aria-hidden="true">
+  <div class="drawer__head">
+    <div class="drawer__brand">
+      <img src="{{BASE}}assets/logo-andrade-nascimento-advocacia.webp" alt="" width="38" height="38">
+      <div>
+        <span class="brand__name">Andrade &amp; Nascimento</span>
+        <span class="brand__sub">Sociedade de Advogados</span>
+      </div>
+    </div>
+    <button class="drawer__close" id="menuClose" aria-label="Fechar menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="drawer__links">
+    <a href="{{BASE}}index.html#top">Início</a>
+    <a href="{{BASE}}index.html#areas">Serviço</a>
+    <a href="{{BASE}}index.html#sobre">Sobre</a>
+    <a href="{{BASE}}index.html#depoimentos">Depoimentos</a>
+    <a href="{{BASE}}index.html#contato">Contatos</a>
+  </nav>
+  <a class="btn btn--gold drawer__cta" href="https://wa.me/5521975785413?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="#211d47" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.892c0 2.096.549 4.142 1.595 5.945L0 24l6.335-1.652a11.9 11.9 0 005.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.893a11.821 11.821 0 00-3.481-8.46"/></svg>
+    Falar no WhatsApp
+  </a>
+</aside>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div class="footer__col footer__col--brand">
+        <div class="brand brand--footer">
+          <img src="{{BASE}}assets/logo-andrade-nascimento-advocacia.webp" alt="" width="44" height="44">
+          <span class="brand__text">
+            <span class="brand__name">Andrade &amp; Nascimento</span>
+            <span class="brand__sub">Sociedade de Advogados</span>
+          </span>
+        </div>
+        <p class="footer__about">Advocacia previdenciária, trabalhista e de família com atendimento humano e acessível em todo o Brasil.</p>
+        <p class="footer__oab">OAB/RJ 240.863 · OAB/RJ 243.079</p>
+        <div class="footer__social">
+          <a href="https://instagram.com/andradenascimentoadvocacia" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Navegação</p>
+        <div class="footer__links">
+          <a href="{{BASE}}index.html#areas">Áreas de atuação</a>
+          <a href="{{BASE}}index.html#sobre">Sobre nós</a>
+          <a href="{{BASE}}index.html#depoimentos">Depoimentos</a>
+          <a href="{{BASE}}index.html#faq">Dúvidas frequentes</a>
+          <a href="{{BASE}}index.html#contato">Contato</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Informações</p>
+        <div class="footer__links">
+          <a href="{{BASE}}termos-e-condicoes.html">Termos e Condições</a>
+          <a href="{{BASE}}politica-de-privacidade.html">Política de Privacidade</a>
+          <a href="{{BASE}}index.html#localizacao">Como chegar</a>
+          <a href="https://search.google.com/local/writereview?placeid=ChIJ63oXXnblmwARLPpVfjmoFB4" target="_blank" rel="noopener">Avaliar no Google</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Contato</p>
+        <div class="footer__links footer__links--contact">
+          <a class="footer__contact" href="https://search.google.com/local/writereview?placeid=ChIJ63oXXnblmwARLPpVfjmoFB4" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
+            Andrade &amp; Nascimento
+          </a>
+          <a class="footer__contact" href="https://www.google.com/maps/dir/?api=1&destination=Rua+Manoel+Ventura+22+Paci%C3%AAncia+Rio+de+Janeiro+RJ" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            Rua Manoel Ventura, 22 — Paciência, RJ
+          </a>
+          <a class="footer__contact footer__contact--phone" href="https://wa.me/5521975785413?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.004c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.003a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.28.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48a.92.92 0 0 0-.67.31c-.23.25-.88.86-.88 2.09 0 1.23.9 2.42 1.03 2.59.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+            (21) 97578-5413
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer-credits-left">
+        <p class="footer-copyright">© 2026 Andrade &amp; Nascimento — Sociedade de Advogados</p>
+        <div class="footer-legal-links">
+          <a href="#" id="ck-prefs-link" class="ck-prefs-link">
+            <span id="cookie-toggle" class="cookie-toggle">
+              <span class="cookie-toggle__check">✓</span>
+              <span class="cookie-toggle__x">✕</span>
+              <span id="cookie-toggle-dot" class="cookie-toggle__dot"></span>
+            </span>
+            Cookie
+          </a>
+          <span class="footer-legal-links__sep">|</span>
+          <a href="{{BASE}}termos-e-condicoes.html">Termos e Condições</a>
+          <span class="footer-legal-links__sep">|</span>
+          <a href="{{BASE}}politica-de-privacidade.html">Política de Privacidade</a>
+        </div>
+      </div>
+      <div class="footer-credits-right">
+        <span>Desenvolvido por <a href="https://www.ag5agencia.com.br" target="_blank" rel="noopener">AG5 Agência</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP WIDGET ===== -->
+<!-- WhatsApp Premium Experience -->
+<div class="wa-premium-container">
+    <!-- Balão de Mensagem Glassmorphism -->
+    <div id="wa-message-bubble" class="wa-bubble">
+        <button class="wa-close" id="wa-close-btn" aria-label="Fechar balão de mensagem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div class="wa-content">
+            <div class="wa-header">
+                <div class="wa-avatar-wrapper">
+                    <img src="{{BASE}}assets/logo-andrade-nascimento-advocacia.webp" alt="Andrade &amp; Nascimento" class="wa-avatar" width="48" height="48">
+                </div>
+                <div class="wa-info">
+                    <span class="wa-name">Andrade &amp; Nascimento</span>
+                </div>
+            </div>
+
+            <!-- Estado de Digitação -->
+            <div id="wa-typing" class="wa-typing">
+                <span></span><span></span><span></span>
+            </div>
+
+            <!-- Mensagem Real -->
+            <div id="wa-real-message" class="wa-message-text">
+                <p>Olá! Estamos à disposição para esclarecer suas dúvidas. <strong>Atendimento humanizado.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão Flutuante Orgânico -->
+    <a href="https://wa.me/5521975785413?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20jur%C3%ADdica." class="wa-float-btn" target="_blank" rel="noopener noreferrer" id="wa-main-btn" aria-label="Fale conosco pelo WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="30" height="30">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.892c0 2.096.549 4.142 1.595 5.945L0 24l6.335-1.652a11.9 11.9 0 005.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.893a11.821 11.821 0 00-3.481-8.46"/>
+        </svg>
+        <span class="wa-badge" id="wa-notification" aria-hidden="true">1</span>
+    </a>
+</div>
+
+<!-- ===== LIGHTBOX DE VÍDEO (expandir) ===== -->
+<div class="vbox" id="vbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vídeo em destaque">
+  <div class="vbox__backdrop" data-vbox-close></div>
+  <div class="vbox__shell">
+    <div class="vbox__frame">
+      <video class="vbox__video" id="vboxVideo" playsinline controls></video>
+      <span class="vbox__tag" id="vboxTag"></span>
+      <button type="button" class="vbox__close" id="vboxClose" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="{{BASE}}script.js"></script>
+
+<!-- ============================================================
+     COOKIE BANNER UNIVERSAL — Snippet HTML Completo
+     ============================================================ -->
+
+<!-- ========== BANNER DE ACEITE ========== -->
+<div id="ck-banner" class="ck-banner" role="dialog" aria-modal="true" aria-label="Aviso de cookies" aria-live="polite"
+    aria-hidden="true">
+    <div class="ck-banner__inner">
+        <div class="ck-banner__content">
+            <h2 class="ck-banner__title">Valorizamos sua privacidade</h2>
+            <p class="ck-banner__text">
+                Utilizamos cookies para aprimorar sua experiência de navegação, exibir conteúdo
+                personalizado e analisar nosso tráfego. Ao clicar em <strong>"Aceitar todos"</strong>,
+                você concorda com nosso uso de cookies conforme nossa
+                <a href="{{BASE}}politica-de-privacidade.html" class="ck-banner__link">Política de Privacidade</a>.
+            </p>
+        </div>
+        <div class="ck-banner__actions">
+            <button id="ck-customize" class="ck-btn ck-btn--ghost">Personalizar</button>
+            <button id="ck-reject" class="ck-btn ck-btn--outline">Rejeitar</button>
+            <button id="ck-accept-all" class="ck-btn ck-btn--primary">Aceitar todos</button>
+        </div>
+    </div>
+</div>
+
+<!-- ========== MODAL DE PERSONALIZAÇÃO ========== -->
+<div id="ck-modal" class="ck-modal" role="dialog" aria-modal="true" aria-label="Personalizar preferências de cookies"
+    aria-hidden="true">
+    <div class="ck-modal__overlay" id="ck-modal-overlay"></div>
+    <div class="ck-modal__box">
+
+        <div class="ck-modal__header">
+            <h2 class="ck-modal__title">Personalizar preferências de consentimento</h2>
+            <button class="ck-modal__close" id="ck-modal-close" aria-label="Fechar modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="ck-modal__body">
+            <p class="ck-modal__intro">
+                Utilizamos cookies para ajudar você a navegar com eficiência e executar certas funções.
+                Os cookies classificados como <strong>"Necessário"</strong> são essenciais para o
+                funcionamento básico do site e não podem ser desativados.
+            </p>
+
+            <!-- Categoria: Necessário (sempre ativo) -->
+            <div class="ck-category">
+                <div class="ck-category__header">
+                    <div class="ck-category__info">
+                        <h3 class="ck-category__name">Necessário</h3>
+                        <p class="ck-category__desc">
+                            Essenciais para o funcionamento do site. Não armazenam dados pessoalmente identificáveis.
+                        </p>
+                    </div>
+                    <span class="ck-category__badge">Sempre ativo</span>
+                </div>
+            </div>
+
+            <!-- Categoria: Funcional -->
+            <div class="ck-category">
+                <div class="ck-category__header">
+                    <div class="ck-category__info">
+                        <h3 class="ck-category__name">Funcional</h3>
+                        <p class="ck-category__desc">
+                            Ajudam a executar funcionalidades como compartilhamento em mídia social e recursos de
+                            terceiros.
+                        </p>
+                    </div>
+                    <label class="ck-toggle" aria-label="Ativar cookies funcionais">
+                        <input type="checkbox" id="ck-functional" name="functional">
+                        <span class="ck-toggle__slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Categoria: Analítico -->
+            <div class="ck-category">
+                <div class="ck-category__header">
+                    <div class="ck-category__info">
+                        <h3 class="ck-category__name">Analítico</h3>
+                        <p class="ck-category__desc">
+                            Usados para entender como os visitantes interagem com o site (visitantes, taxa de rejeição,
+                            etc.).
+                        </p>
+                    </div>
+                    <label class="ck-toggle" aria-label="Ativar cookies analíticos">
+                        <input type="checkbox" id="ck-analytics" name="analytics">
+                        <span class="ck-toggle__slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Categoria: Desempenho -->
+            <div class="ck-category">
+                <div class="ck-category__header">
+                    <div class="ck-category__info">
+                        <h3 class="ck-category__name">Desempenho</h3>
+                        <p class="ck-category__desc">
+                            Analisam índices de desempenho do site para oferecer melhor experiência ao visitante.
+                        </p>
+                    </div>
+                    <label class="ck-toggle" aria-label="Ativar cookies de desempenho">
+                        <input type="checkbox" id="ck-performance" name="performance">
+                        <span class="ck-toggle__slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Categoria: Publicidade -->
+            <div class="ck-category">
+                <div class="ck-category__header">
+                    <div class="ck-category__info">
+                        <h3 class="ck-category__name">Publicidade</h3>
+                        <p class="ck-category__desc">
+                            Entregam anúncios personalizados com base nas páginas visitadas anteriormente.
+                        </p>
+                    </div>
+                    <label class="ck-toggle" aria-label="Ativar cookies de publicidade">
+                        <input type="checkbox" id="ck-advertising" name="advertising">
+                        <span class="ck-toggle__slider"></span>
+                    </label>
+                </div>
+            </div>
+
+        </div><!-- /.ck-modal__body -->
+
+        <div class="ck-modal__footer">
+            <button id="ck-modal-reject" class="ck-btn ck-btn--outline">Rejeitar</button>
+            <button id="ck-modal-save" class="ck-btn ck-btn--ghost">Salvar Preferências</button>
+            <button id="ck-modal-accept-all" class="ck-btn ck-btn--primary">Aceitar todos</button>
+        </div>
+
+    </div><!-- /.ck-modal__box -->
+</div><!-- /#ck-modal -->
+
+<!-- ========== BOTÃO FLUTUANTE (OPCIONAL) ========== -->
+<!-- Desativado por padrão no CONFIG do JS em favor do link no rodapé -->
+<button id="ck-prefs-btn" class="ck-prefs-btn" aria-label="Preferências de cookies" style="display:none;">
+    Cookies
+</button>
+
+<!-- ========== SCRIPT ========== -->
+<script src="{{BASE}}cookie-banner.js" defer></script>

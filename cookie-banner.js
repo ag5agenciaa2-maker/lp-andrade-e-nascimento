@@ -146,11 +146,14 @@
         if (state.decided) {
             if (state.functional || state.analytics || state.performance || state.advertising) {
                 toggle.classList.remove('inactive');
+                toggle.classList.add('active');
             } else {
+                toggle.classList.remove('active');
                 toggle.classList.add('inactive');
             }
         } else {
             toggle.classList.remove('inactive');
+            toggle.classList.add('active');
         }
     }
 

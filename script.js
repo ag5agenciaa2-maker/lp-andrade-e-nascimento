@@ -15,10 +15,53 @@
   /* ---------- Hero load ---------- */
   (function(){
     var hero=document.querySelector('.hero');
+    var spotlight=document.querySelector('.hero__spotlight');
     if(!hero)return;
     function loaded(){hero.classList.add('is-loaded')}
     if(document.readyState==='complete')loaded();
     else window.addEventListener('load',loaded);
+
+    if(spotlight && !prefersReduced){
+      var targetX = 50;
+      var targetY = 50;
+      var currentX = 50;
+      var currentY = 50;
+      var raf = null;
+
+      function updateSpotlight() {
+        currentX += (targetX - currentX) * 0.08;
+        currentY += (targetY - currentY) * 0.08;
+
+        spotlight.style.setProperty('--x', currentX.toFixed(2) + '%');
+        spotlight.style.setProperty('--y', currentY.toFixed(2) + '%');
+
+        var dx = targetX - currentX;
+        var dy = targetY - currentY;
+        if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
+          raf = requestAnimationFrame(updateSpotlight);
+        } else {
+          raf = null;
+        }
+      }
+
+      hero.addEventListener('mousemove', function(e){
+        var rect = hero.getBoundingClientRect();
+        targetX = ((e.clientX - rect.left) / rect.width) * 100;
+        targetY = ((e.clientY - rect.top) / rect.height) * 100;
+
+        if (!raf) {
+          raf = requestAnimationFrame(updateSpotlight);
+        }
+      });
+
+      hero.addEventListener('mouseleave', function(){
+        targetX = 50;
+        targetY = 50;
+        if (!raf) {
+          raf = requestAnimationFrame(updateSpotlight);
+        }
+      });
+    }
   })();
 
   /* ---------- Stars ---------- */
@@ -41,8 +84,8 @@
 
   var services=[
     {n:'01',title:'Direito Previdenciário',desc:'Aposentadorias, auxílio-doença, BPC/LOAS, salário-maternidade e revisões. Teve o benefício negado pelo INSS? A gente recorre e resolve.'},
-    {n:'02',title:'Direito Trabalhista',desc:'Demissão sem justa causa, verbas rescisórias, horas extras, assédio e reconhecimento de vínculo. Seus direitos de trabalhador, garantidos.'},
-    {n:'03',title:'Direito de Família',desc:'Divórcio, pensão alimentícia, guarda, inventário e partilha — conduzidos com sensibilidade e total discrição.'},
+    {n:'02',title:'Direito Trabalhista',desc:'Demissão sem justa causa, verbas rescisórias, horas extras, assédio e reconhecimento de vínculo. Atuação dedicada na defesa e garantia dos seus direitos trabalhistas.'},
+    {n:'03',title:'Direito de Família',desc:'Divórcio, pensão alimentícia, guarda, inventário e partilha, conduzidos com sensibilidade e total discrição.'},
     {n:'04',title:'Direito do Consumidor',desc:'Cobranças indevidas, negativação, produtos e serviços com defeito e contratos abusivos. Você não está sozinho contra as empresas.'},
     {n:'05',title:'Direito Cível',desc:'Contratos, indenizações, cobranças e conflitos patrimoniais resolvidos com estratégia e segurança jurídica.'}
   ];
@@ -65,21 +108,21 @@
 
   /* ---------- Testimonials (20 reais do Google) ---------- */
   var testimonials=[
-    {text:'Advogada muito atenciosa. Tivemos êxito no processo graças à dedicação e competência da profissional. Indico a todos!',who:'Sara Melo · Google'},
+    {text:'Advogada muito atenciosa. Conduziu nosso processo com extrema dedicação e competência jurídica. Indico a todos!',who:'Sara Melo · Google'},
     {text:'São profissionais maravilhosos! Tive um pequeno problema e, em menos de dois meses, elas resolveram tudo, sempre com uma comunicação clara, respeitosa e dispostas a esclarecer todas as dúvidas.',who:'Mauro Guedes · Google'},
-    {text:'Melhor advogada. Excelente profissional, atenciosa, não abandona os clientes, sempre me responde quando tenho dúvidas. Indico demais!',who:'Larissa Helena · Google'},
+    {text:'Excelente profissional, atenciosa, não abandona os clientes, sempre me responde quando tenho dúvidas. Indico demais!',who:'Larissa Helena · Google'},
     {text:'Ambiente muito agradável, ótimo atendimento, sempre com muito respeito. A doutora foi super simpática e conseguiu me auxiliar de forma clara e muito eficiente. Uma parceria para a vida toda.',who:'Luiz Vitor Santos · Google'},
-    {text:'Espaço aconchegante. Consegui resolver meus problemos e ganhei um processo graças à Dra. Caroline e sua equipe. São atenciosos, competentes e explicam tudo com muita clareza e ética.',who:'Luciene Da Costa · Google'},
+    {text:'Espaço aconchegante. Tive todo o suporte e orientação no meu processo graças à Dra. Caroline e sua equipe. São atenciosos, competentes e explicam tudo com muita clareza e ética.',who:'Luciene Da Costa · Google'},
     {text:'Atenciosa, competente e muito dedicada! Ela me ajudou a resolver meu problema familiar. Sou muito grato! Indico para todos que conheço, uma excelente profissional!',who:'Isaias Henrique · Google'},
-    {text:'Ótimo atendimento, super indico. Doutora super atenciosa e dedicada nas causas. Obrigada por tudo, causa ganha. Já tinha perdido as esperanças, mas graças à Dra. Caroline consegui essa vitória.',who:'Alessan Andrade · Google'},
+    {text:'Ótimo atendimento, super indico. Doutora super atenciosa e dedicada nas causas. Obrigada por todo o suporte técnico e humano.',who:'Alessan Andrade · Google'},
     {text:'Ótima profissional, dedicada e atenciosa. Meu processo foi super rápido. Indicarei sempre os serviços para todos que conheço.',who:'Benjamin Almeida · Google'},
-    {text:'Melhor advogada, super atenciosa e gentil. Sempre que preciso, tira minhas dúvidas. Ganhou minha causa, me auxilia até hoje. Super recomendo, maravilhosa.',who:'Yasmim Souza · Google'},
+    {text:'Excelente advogada, super atenciosa e gentil. Sempre que preciso, tira minhas dúvidas. Conduziu meu caso com maestria e me auxilia até hoje. Super recomendo, maravilhosa.',who:'Yasmim Souza · Google'},
     {text:'Uma excelente advogada! Sou da Bahia e ela conseguiu me atender perfeitamente mesmo com a distância.',who:'Junior · Google'},
-    {text:'Ótimo atendimento, super atenciosa. Resolveu meus problemos sem me dar dor de cabeça e muito rápido. Profissionalismo puro. Super recomendo! Pode confiar!',who:'Douglas Ferreira · Google'},
-    {text:'Excelente profissional, muito atenciosa. Graças a ela ganhei minha causa!',who:'Mylene Lira Alves de Oliveira · Google'},
-    {text:'Advogada excelente, atenciosa, competente e simpática. Me ajudou no meu processo e me aposentei.',who:'Ado Euclides · Google'},
-    {text:'A melhor advogada! É de confiança, super indico.',who:'Bruna Antunes · Google'},
-    {text:'Advogada excelente! Me ajudou a ganhar minha causa.',who:'Igor Costa · Google'},
+    {text:'Ótimo atendimento, super atenciosa. Resolveu meus problemas sem me dar dor de cabeça e muito rápido. Profissionalismo puro. Super recomendo! Pode confiar!',who:'Douglas Ferreira · Google'},
+    {text:'Excelente profissional, muito atenciosa e dedicada. Prestou um serviço de altíssima qualidade!',who:'Mylene Lira Alves de Oliveira · Google'},
+    {text:'Advogada excelente, atenciosa, competente e simpática. Me auxiliou em todo o processo de aposentadoria.',who:'Ado Euclides · Google'},
+    {text:'Excelente advogada! É de confiança, super indico.',who:'Bruna Antunes · Google'},
+    {text:'Advogada excelente! Conduziu minha demanda com extremo profissionalismo e competência.',who:'Igor Costa · Google'},
     {text:'Excelente advogada! O trabalho dela é perfeito!',who:'Paola Rodrigues · Google'},
     {text:'Ótima profissional, super atenciosa e simpática! Super indico.',who:'Ellen Caroline · Google'},
     {text:'Sempre rápida e muito profissional na resolução dos processos. Indico seus serviços de olhos fechados!',who:'Ingrid Fernandes · Google'},
@@ -118,9 +161,9 @@
   var faq=[
     {q:'Quem tem direito a se aposentar pelo INSS?',a:'Depende do tempo de contribuição, da idade e da categoria (urbano, rural ou especial). Analisamos o seu caso e dizemos exatamente o que falta para você se aposentar.'},
     {q:'O INSS negou meu benefício. Ainda posso conseguir?',a:'Sim. Muitas negativas são revertidas na via administrativa ou judicial. Reunimos os documentos certos e recorremos da decisão por você.'},
-    {q:'Dona de casa pode receber aposentadoria ou salário-maternidade?',a:'Pode, em várias situações — inclusive contribuindo como facultativa de baixa renda. Avaliamos qual é o melhor caminho para o seu caso.'},
+    {q:'Dona de casa pode receber aposentadoria ou salário-maternidade?',a:'Pode, em várias situações, inclusive por meio de contribuições como facultativa de baixa renda. Analisamos cada detalhe para orientar sobre a opção mais adequada para você.'},
     {q:'Fui demitido. Como sei se recebi tudo o que tinha direito?',a:'Fazemos o cálculo das suas verbas rescisórias e verificamos horas extras, FGTS e demais direitos. Se houver diferença, buscamos o pagamento.'},
-    {q:'Quanto custa a primeira conversa?',a:'A análise inicial do seu caso é feita pelo WhatsApp, sem compromisso. Você entende suas opções antes de decidir qualquer coisa.'}
+    {q:'Quanto custa a primeira conversa?',a:'A avaliação inicial do seu caso é feita por atendimento digital. Analisamos a viabilidade jurídica da sua demanda com base na legislação vigente.'}
   ];
   (function(){
     var nav=el('faqNav'),panel=el('faqPanel');
@@ -291,8 +334,8 @@
       var message='Olá, me chamo '+nome.value.trim()+', vim através do site e gostaria de uma informação.\n\n'+
         '- E-mail: '+email.value.trim()+'\n'+
         '- Telefone: '+whats.value.trim()+'\n'+
-        '- Assunto: '+area.value+'\n';
-      if(msg.value.trim())message+='- Situação: '+msg.value.trim();
+        '- Área Jurídica: '+area.value+'\n';
+      if(msg.value.trim())message+='- Descrição do caso: '+msg.value.trim();
       window.open(WHATSAPP+'?text='+encodeURIComponent(message),'_blank');
     });
   })();
@@ -311,7 +354,7 @@
       card.setAttribute('data-i',String(i));
       card.innerHTML=
         '<img class="cflow__poster" src="assets/posters/'+r.f+'.jpg" alt="'+r.t+'" loading="lazy">'+
-        '<video class="cflow__video" src="assets/'+r.f+'.mp4" preload="none" playsinline muted></video>'+
+        '<video class="cflow__video" src="https://pub-bee60395832b482eb7a28c6ef84f559d.r2.dev/'+r.f+'.mp4" preload="none" playsinline muted></video>'+
         '<span class="cflow__shade"></span>'+
         '<span class="cflow__scrim"></span>'+
         '<span class="cflow__tag">'+r.tag+'</span>'+
@@ -497,7 +540,7 @@
     var box=el('vbox'),boxVid=el('vboxVideo');
     function openBox(i,at,playing){
       var r=reels[i];
-      boxVid.src='assets/'+r.f+'.mp4';
+      boxVid.src='https://pub-bee60395832b482eb7a28c6ef84f559d.r2.dev/'+r.f+'.mp4';
       el('vboxTag').textContent=r.tag;
       box.classList.add('is-open');
       box.setAttribute('aria-hidden','false');
@@ -521,52 +564,83 @@
     layout();
   })();
 
-  /* ---------- WhatsApp Premium Experience ---------- */
-  (function () {
-    var bubble = document.getElementById('wa-message-bubble');
-    var typing = document.getElementById('wa-typing');
-    var realMessage = document.getElementById('wa-real-message');
-    var badge = document.getElementById('wa-notification');
-    var closeBtn = document.getElementById('wa-close-btn');
-    var mainBtn = document.getElementById('wa-main-btn');
-    if (!bubble || !typing || !realMessage) return;
+  /* ---------- WhatsApp Premium Experience (AG5 V4) ---------- */
+  (function initWaPremium() {
+    const MODO_COMPLIANCE = true;
 
-    // Mostrar o balão após 6 segundos
-    setTimeout(function () {
-      bubble.classList.add('show');
-      // Simular digitação por 2.5 segundos antes de mostrar a mensagem
-      setTimeout(function () {
-        typing.style.display = 'none';
-        realMessage.style.display = 'block';
-        realMessage.style.opacity = '0';
-        realMessage.style.transition = 'opacity .6s ease';
-        requestAnimationFrame(function () {
-          realMessage.style.opacity = '1';
-        });
-      }, 2500);
-    }, 6000);
+    const bubble        = document.getElementById('wa-message-bubble');
+    const typing        = document.getElementById('wa-typing');
+    const realMessage   = document.getElementById('wa-real-message');
+    const badge         = document.getElementById('wa-notification');
+    const closeBtn      = document.getElementById('wa-close-btn');
+    const mainBtn       = document.getElementById('wa-main-btn');
+    const targetSection = document.getElementById('areas');
 
-    // Fechar balão
-    if (closeBtn) {
-      closeBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        bubble.classList.remove('show');
-        // Mostrar notificação após fechar para manter engajamento
-        if (badge) {
-          setTimeout(function () {
-            badge.classList.add('show');
-          }, 2000);
+    if (!bubble || !typing || !realMessage || !closeBtn || !mainBtn || !targetSection) return;
+
+    const DELAY_BALAO            = 25000;
+    const DURATION_TYPING        = 2500;
+    const DURATION_BALAO_VISIVEL = 15000;
+    const DELAY_BADGE_APOS_SUMIR = 5000;
+
+    let triggered = false;
+    let autoHideTimer = null;
+    let badgeTimer = null;
+    let userClosed = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !triggered) {
+          triggered = true;
+
+          mainBtn.classList.add('visible');
+
+          setTimeout(() => {
+            if (userClosed) return;
+            bubble.classList.add('show');
+
+            setTimeout(() => {
+              if (userClosed) return;
+              typing.classList.add('is-hidden');
+              realMessage.classList.add('is-visible');
+              requestAnimationFrame(() => realMessage.classList.add('is-in'));
+            }, DURATION_TYPING);
+
+            autoHideTimer = setTimeout(() => {
+              if (userClosed) return;
+              bubble.classList.remove('show');
+
+              if (!MODO_COMPLIANCE && badge) {
+                badgeTimer = setTimeout(() => {
+                  if (userClosed) return;
+                  badge.classList.add('show');
+                }, DELAY_BADGE_APOS_SUMIR);
+              }
+            }, DURATION_BALAO_VISIVEL);
+          }, DELAY_BALAO);
         }
       });
-    }
+    }, { threshold: 0.1 });
 
-    // Ao clicar no botão, remove tudo
-    if (mainBtn) {
-      mainBtn.addEventListener('click', function () {
-        bubble.classList.remove('show');
-        if (badge) badge.classList.remove('show');
-      });
-    }
+    observer.observe(targetSection);
+
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      userClosed = true;
+      bubble.classList.remove('show');
+      if (autoHideTimer) clearTimeout(autoHideTimer);
+      if (badgeTimer) clearTimeout(badgeTimer);
+      if (!MODO_COMPLIANCE && badge) {
+        setTimeout(() => { badge.classList.add('show'); }, DELAY_BADGE_APOS_SUMIR);
+      }
+    });
+
+    mainBtn.addEventListener('click', () => {
+      bubble.classList.remove('show');
+      if (badge) badge.classList.remove('show');
+      if (autoHideTimer) clearTimeout(autoHideTimer);
+      if (badgeTimer) clearTimeout(badgeTimer);
+    });
   })();
 
 })();

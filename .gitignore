@@ -17,3 +17,8 @@ desktop.ini
 # Temporários e logs
 tmp/
 *.log
+
+# Vídeos pesados migrados para o R2
+assets/*.mp4
+Docs/**/*.mp4
+
