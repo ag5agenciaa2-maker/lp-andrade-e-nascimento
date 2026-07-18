@@ -64,6 +64,27 @@
     }
   })();
 
+  /* ---------- Pain stage: wipe reveal ---------- */
+  (function(){
+    var stage=document.querySelector('.pain__stage');
+    if(!stage)return;
+    var media=document.querySelector('.pain__media');
+    function markRevealed(){
+      stage.classList.add('is-revealed');
+      if(media)media.classList.add('is-revealed');
+    }
+    if('IntersectionObserver' in window && !prefersReduced){
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){markRevealed();obs.unobserve(stage)}
+        });
+      },{threshold:0.35});
+      obs.observe(stage);
+    } else {
+      markRevealed();
+    }
+  })();
+
   /* ---------- Stars ---------- */
   document.querySelectorAll('.stars').forEach(function(s){
     s.innerHTML=STAR+STAR+STAR+STAR+STAR;
@@ -89,6 +110,7 @@
     {n:'04',title:'Direito do Consumidor',desc:'Cobranças indevidas, negativação, produtos e serviços com defeito e contratos abusivos. Você não está sozinho contra as empresas.'},
     {n:'05',title:'Direito Cível',desc:'Contratos, indenizações, cobranças e conflitos patrimoniais resolvidos com estratégia e segurança jurídica.'}
   ];
+  var SERVICE_ARROW='<span class="service__cta"><span class="service__cta-t">Saiba mais</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
   (function(){
     var wrap=el('servicesList');
     if(!wrap)return;
@@ -101,9 +123,33 @@
       a.rel='noopener';
       a.setAttribute('data-reveal','left');
       a.setAttribute('data-reveal-delay',String(i*130));
-      a.innerHTML='<span class="service__num">'+s.n+'</span><span class="service__body"><span class="service__title">'+s.title+'</span><span class="service__desc">'+s.desc+'</span></span><span class="service__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
+      a.innerHTML='<span class="service__num">'+s.n+'</span><span class="service__body"><span class="service__title">'+s.title+'</span><span class="service__desc">'+s.desc+'</span></span>'+SERVICE_ARROW;
+      if(!prefersReduced){
+        a.addEventListener('mousemove',function(e){
+          var r=a.getBoundingClientRect();
+          a.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+          a.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+        });
+      }
       wrap.appendChild(a);
     });
+
+    var cta=document.createElement('a');
+    cta.className='service service--cta reveal';
+    cta.href=WHATSAPP+'?text='+WHATSAPP_MSG+encodeURIComponent('meu caso.');
+    cta.target='_blank';
+    cta.rel='noopener';
+    cta.setAttribute('data-reveal','left');
+    cta.setAttribute('data-reveal-delay',String(services.length*130));
+    cta.innerHTML='<span class="service__body"><span class="service__title">Não encontrou o seu caso aqui?</span><span class="service__desc">Fale conosco para vermos juntos a melhor solução para o seu problema.</span></span>'+SERVICE_ARROW;
+    if(!prefersReduced){
+      cta.addEventListener('mousemove',function(e){
+        var r=cta.getBoundingClientRect();
+        cta.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+        cta.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+      });
+    }
+    wrap.appendChild(cta);
   })();
 
   /* ---------- Testimonials (20 reais do Google) ---------- */
@@ -569,17 +615,15 @@
     const MODO_COMPLIANCE = true;
 
     const bubble        = document.getElementById('wa-message-bubble');
-    const typing        = document.getElementById('wa-typing');
     const realMessage   = document.getElementById('wa-real-message');
     const badge         = document.getElementById('wa-notification');
     const closeBtn      = document.getElementById('wa-close-btn');
     const mainBtn       = document.getElementById('wa-main-btn');
     const targetSection = document.getElementById('areas');
 
-    if (!bubble || !typing || !realMessage || !closeBtn || !mainBtn || !targetSection) return;
+    if (!bubble || !realMessage || !closeBtn || !mainBtn || !targetSection) return;
 
     const DELAY_BALAO            = 25000;
-    const DURATION_TYPING        = 2500;
     const DURATION_BALAO_VISIVEL = 15000;
     const DELAY_BADGE_APOS_SUMIR = 5000;
 
@@ -598,13 +642,8 @@
           setTimeout(() => {
             if (userClosed) return;
             bubble.classList.add('show');
-
-            setTimeout(() => {
-              if (userClosed) return;
-              typing.classList.add('is-hidden');
-              realMessage.classList.add('is-visible');
-              requestAnimationFrame(() => realMessage.classList.add('is-in'));
-            }, DURATION_TYPING);
+            realMessage.classList.add('is-visible');
+            requestAnimationFrame(() => realMessage.classList.add('is-in'));
 
             autoHideTimer = setTimeout(() => {
               if (userClosed) return;
